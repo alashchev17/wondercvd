@@ -1,0 +1,15 @@
+// Core styles
+@import 'normalize';
+@import 'variables';
+@import 'settings';
+@import 'media';
+// Components
+@import 'components/lines';
+@import 'components/button';
+@import 'components/ellipse';
+// Sections
+@import 'sections/header';
+@import 'sections/hero';
+@import 'sections/slogan';
+// Media Queries
+@import 'media';

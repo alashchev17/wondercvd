@@ -1,0 +1,57 @@
+// Colors
+$white: #ffffff;
+$white-30: rgba($white, 0.3);
+$black: #000000;
+$primary: #de0000;
+$secondary: #207376;
+
+$header-height: 96.4px;
+$container-width: 1180px;
+
+// Spacing Desktop
+$offset-a1-desktop: 250px;
+$offset-a2-desktop: 130px;
+$offset-a3-desktop: 100px;
+$offset-a4-desktop: 50px;
+$offset-a5-desktop: 30px;
+$offset-a6-desktop: 20px;
+
+// Spacing Mobile
+$offset-a1-mobile: 140px;
+$offset-a2-mobile: 90px;
+$offset-a3-mobile: 80px;
+$offset-a4-mobile: 40px;
+$offset-a5-mobile: 30px;
+$offset-a6-mobile: 20px;
+
+// Breakpoints
+$breakpoint-xl: 1200px;
+$breakpoint-lg: 992px;
+$breakpoint-md: 768px;
+$breakpoint-sm: 576px;
+
+// Font
+$font-family-base: 'Geologica', sans-serif;
+$font-weight-thin: 100;
+$font-weight-regular: 400;
+$font-weight-bold: 700;
+
+// Typography Desktop
+$h1-desktop: 72px;
+$h2-desktop: 40px;
+$h3-desktop: 36px;
+$subhead-desktop: 20px;
+$text-body-desktop: 18px;
+$text-body-accent-desktop: 18px;
+$additional-text-desktop: 22px;
+$text-info-desktop: 12px;
+
+// Typography Mobile
+$h1-mobile: 40px;
+$h2-mobile: 26px;
+$h3-mobile: 24px;
+$subhead-mobile: 14px;
+$text-body-mobile: 14px;
+$text-body-accent-mobile: 14px;
+$additional-text-mobile: 18px;
+$text-info-mobile: 10px;

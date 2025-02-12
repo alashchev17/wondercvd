@@ -1,0 +1,24 @@
+@import 'variables';
+
+// Media queries for typography and spacing
+@media screen and (max-width: $breakpoint-md) {
+  :root {
+    // Typography
+    --h1-size: #{$h1-mobile};
+    --h2-size: #{$h2-mobile};
+    --h3-size: #{$h3-mobile};
+    --subhead-size: #{$subhead-mobile};
+    --text-body-size: #{$text-body-mobile};
+    --text-body-accent-size: #{$text-body-accent-mobile};
+    --additional-text-size: #{$additional-text-mobile};
+    --text-info-size: #{$text-info-mobile};
+
+    // Spacing
+    --offset-a1: #{$offset-a1-mobile};
+    --offset-a2: #{$offset-a2-mobile};
+    --offset-a3: #{$offset-a3-mobile};
+    --offset-a4: #{$offset-a4-mobile};
+    --offset-a5: #{$offset-a5-mobile};
+    --offset-a6: #{$offset-a6-mobile};
+  }
+}

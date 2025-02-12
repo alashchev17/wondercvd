@@ -1,0 +1,32 @@
+.slogan {
+  &__container {
+    padding: var(--offset-a1) 0;
+  }
+  &__hexagons {
+    position: absolute;
+    top: 45px;
+    right: 0;
+    z-index: 10;
+  }
+  &__ellipse {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+  }
+  &__info {
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: flex-end;
+    max-width: max-content;
+  }
+  &__title {
+    align-self: flex-start;
+  }
+  &__author {
+    margin-right: 100px;
+  }
+}

@@ -1,0 +1,230 @@
+@import 'variables';
+@import url('https://fonts.googleapis.com/css2?family=Geologica:wght@100..900&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  // Colors
+  --white: #{$white};
+  --white-30: #{$white-30};
+  --black: #{$black};
+  --primary: #{$primary};
+  --secondary: #{$secondary};
+
+  // Spacing
+  --offset-a1: #{$offset-a1-desktop};
+  --offset-a2: #{$offset-a2-desktop};
+  --offset-a3: #{$offset-a3-desktop};
+  --offset-a4: #{$offset-a4-desktop};
+  --offset-a5: #{$offset-a5-desktop};
+  --offset-a6: #{$offset-a6-desktop};
+
+  // Typography
+  --h1-size: #{$h1-desktop};
+  --h2-size: #{$h2-desktop};
+  --h3-size: #{$h3-desktop};
+  --subhead-size: #{$subhead-desktop};
+  --text-body-size: #{$text-body-desktop};
+  --text-body-accent-size: #{$text-body-accent-desktop};
+  --additional-text-size: #{$additional-text-desktop};
+  --text-info-size: #{$text-info-desktop};
+}
+
+body {
+  font-family: $font-family-base;
+  font-optical-sizing: auto;
+  font-weight: $font-weight-regular;
+  background-color: var(--black);
+  color: var(--white);
+  font-style: normal;
+  font-variation-settings: 'slnt' 0, 'CRSV' 0, 'SHRP' 0;
+}
+
+.container {
+  position: relative;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+input {
+  background: unset;
+  border: none;
+  outline: none;
+}
+
+// Typography classes
+.h1 {
+  font-size: var(--h1-size);
+  font-weight: $font-weight-bold;
+  font-family: $font-family-base;
+}
+
+.h2 {
+  font-size: var(--h2-size);
+  font-weight: $font-weight-bold;
+  font-family: $font-family-base;
+}
+
+.h3 {
+  font-size: var(--h3-size);
+  font-weight: $font-weight-bold;
+  font-family: $font-family-base;
+}
+
+.subhead {
+  font-size: var(--subhead-size);
+  font-weight: $font-weight-bold;
+  font-family: $font-family-base;
+}
+
+.text-body {
+  font-size: var(--text-body-size);
+  font-weight: $font-weight-thin;
+  font-family: $font-family-base;
+}
+
+.text-body-accent {
+  font-size: var(--text-body-accent-size);
+  font-weight: $font-weight-bold;
+  font-family: $font-family-base;
+}
+
+.additional-text {
+  font-size: var(--additional-text-size);
+  font-weight: $font-weight-regular;
+  font-family: $font-family-base;
+}
+
+.text-info {
+  font-size: var(--text-info-size);
+  font-weight: $font-weight-regular;
+  font-family: $font-family-base;
+}
+
+// Spacing utility classes
+.mt-1 {
+  margin-top: var(--offset-a1);
+}
+.mt-2 {
+  margin-top: var(--offset-a2);
+}
+.mt-3 {
+  margin-top: var(--offset-a3);
+}
+.mt-4 {
+  margin-top: var(--offset-a4);
+}
+.mt-5 {
+  margin-top: var(--offset-a5);
+}
+.mt-6 {
+  margin-top: var(--offset-a6);
+}
+
+.mb-1 {
+  margin-bottom: var(--offset-a1);
+}
+.mb-2 {
+  margin-bottom: var(--offset-a2);
+}
+.mb-3 {
+  margin-bottom: var(--offset-a3);
+}
+.mb-4 {
+  margin-bottom: var(--offset-a4);
+}
+.mb-5 {
+  margin-bottom: var(--offset-a5);
+}
+.mb-6 {
+  margin-bottom: var(--offset-a6);
+}
+
+.pt-1 {
+  padding-top: var(--offset-a1);
+}
+.pt-2 {
+  padding-top: var(--offset-a2);
+}
+.pt-3 {
+  padding-top: var(--offset-a3);
+}
+.pt-4 {
+  padding-top: var(--offset-a4);
+}
+.pt-5 {
+  padding-top: var(--offset-a5);
+}
+.pt-6 {
+  padding-top: var(--offset-a6);
+}
+
+.pb-1 {
+  padding-bottom: var(--offset-a1);
+}
+.pb-2 {
+  padding-bottom: var(--offset-a2);
+}
+.pb-3 {
+  padding-bottom: var(--offset-a3);
+}
+.pb-4 {
+  padding-bottom: var(--offset-a4);
+}
+.pb-5 {
+  padding-bottom: var(--offset-a5);
+}
+.pb-6 {
+  padding-bottom: var(--offset-a6);
+}
+
+.gap-1 {
+  gap: var(--offset-a1);
+}
+.gap-2 {
+  gap: var(--offset-a2);
+}
+.gap-3 {
+  gap: var(--offset-a3);
+}
+.gap-4 {
+  gap: var(--offset-a4);
+}
+.gap-5 {
+  gap: var(--offset-a5);
+}
+.gap-6 {
+  gap: var(--offset-a6);
+}

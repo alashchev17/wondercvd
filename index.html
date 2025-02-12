@@ -3,7 +3,84 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <link rel="stylesheet" href="./css/main.css" />
+    <title>WonderCVD.RU</title>
   </head>
-  <body></body>
+  <body>
+    <div class="container">
+      <div class="lines">
+        <div class="lines__line"></div>
+        <div class="lines__line"></div>
+        <div class="lines__line"></div>
+        <div class="lines__line"></div>
+        <div class="lines__line"></div>
+      </div>
+    </div>
+    <header class="header">
+      <div class="container header__container">
+        <a href="#hero" class="logo header__logo">
+          <i class="header__logo-image">
+            <svg viewBox="0 0 188 66">
+              <use xlink:href="./images/sprite.svg#wonder-logo"></use>
+            </svg>
+          </i>
+        </a>
+        <div class="header__right">
+          <nav class="nav header__nav">
+            <a href="#" class="nav__close">
+              <span class="nav__close-icon"></span>
+            </a>
+            <ul class="nav__list">
+              <li class="nav__item">
+                <a href="#cell" class="nav__link">О нас</a>
+              </li>
+              <li class="nav__item">
+                <a href="#system" class="nav__link">Команда</a>
+              </li>
+              <li class="nav__item">
+                <a href="#advantages" class="nav__link">Технология</a>
+              </li>
+              <li class="nav__item">
+                <a href="#applications" class="nav__link">Преимущества</a>
+              </li>
+            </ul>
+          </nav>
+          <a href="#" data-modal="true" class="button button--menu">
+            Связаться
+            <i class="button__icon">
+              <svg viewBox="0 0 15 12">
+                <use xlink:href="./images/sprite.svg#button-arrow"></use>
+              </svg>
+            </i>
+          </a>
+        </div>
+        <a href="#" class="header__burger"></a>
+      </div>
+    </header>
+    <section class="hero">
+      <div class="container">
+        <h1 class="h1 hero__title">Wonder Technologies&nbsp;<sup class="hero__trademark">&#174;</sup></h1>
+        <div class="hero__slogan">
+          <div class="hero__slogan-inner">
+            <h2 class="additional-text hero__slogan-title">
+              <span class="hero__slogan-title--highlight">Лидер</span> в индустрии CVD производства
+              <span class="hero__slogan-title--highlight">Lab Grown Diamonds</span>
+            </h2>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="slogan">
+      <div class="container slogan__container">
+        <img src="./images/hexagons.svg" class="slogan__hexagons" />
+        <div class="ellipse slogan__ellipse"></div>
+        <div class="slogan__info">
+          <h2 class="h2 slogan__title">
+            «Воплощаем математическое <br />совершенство Вселенной<br />в гармонии c природой и технологиями».
+          </h2>
+          <span class="slogan__author">- команда Wonder Technologies</span>
+        </div>
+      </div>
+    </section>
+  </body>
 </html>

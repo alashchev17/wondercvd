@@ -1,0 +1,21 @@
+.lines {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: $container-width;
+  margin: 0 auto;
+  min-height: 100dvh;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  pointer-events: none; // So it doesn't interfere with other elements
+  z-index: 1;
+  &__line {
+    background-color: rgba(#b8b8b8, 0.1);
+    width: 1px;
+    height: 100%;
+  }
+}
