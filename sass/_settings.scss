@@ -85,6 +85,10 @@ input {
   outline: none;
 }
 
+img {
+  max-width: 100%;
+}
+
 // Typography classes
 .h1 {
   font-size: var(--h1-size);

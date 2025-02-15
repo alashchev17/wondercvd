@@ -1,0 +1,50 @@
+.player {
+  &-preview {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &__button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      &:hover {
+        opacity: 0.7;
+      }
+      &:active {
+        opacity: 0.5;
+      }
+    }
+    &__image {
+      @include cut-off-left-top-and-right-bottom-corners();
+    }
+  }
+  &-progress {
+    position: relative;
+    width: 100%;
+    margin-top: 25px;
+    &__inner {
+      position: relative;
+      &::before {
+        position: absolute;
+        content: '';
+        width: 100%;
+        height: 1px;
+        background-color: rgba($primary, 0.3);
+      }
+    }
+    &__bar {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      background-color: var(--primary);
+      width: 75px;
+      height: 3px;
+      transition: width 0.3s ease-in-out;
+    }
+  }
+}

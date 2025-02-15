@@ -20,3 +20,15 @@
     /* Point 5: Bottom-left corner */ 0 15px /* Point 6: Left edge, 15px down from top */
   );
 }
+
+@mixin primary-quotation() {
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 32px;
+    background-color: var(--primary);
+  }
+}

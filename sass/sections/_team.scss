@@ -1,0 +1,21 @@
+.team {
+  padding: var(--offset-a2) 0;
+  &__container {
+  }
+  &__title {
+    text-transform: uppercase;
+    margin-bottom: var(--offset-a4);
+  }
+  &__info {
+    max-width: 70%;
+    position: relative;
+    @include primary-quotation;
+    margin-bottom: var(--offset-a3);
+    &-inner {
+      margin-left: 46px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+}

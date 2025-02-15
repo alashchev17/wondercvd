@@ -15,15 +15,7 @@
   &__info {
     position: relative;
     max-width: 50%;
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 3px;
-      height: 32px;
-      background-color: var(--primary);
-    }
+    @include primary-quotation;
     &::after {
       @include solid-color-l-shape-tick(20px, 2px, var(--primary), bottom right);
     }
