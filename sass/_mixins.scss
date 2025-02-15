@@ -1,0 +1,11 @@
+@mixin solid-color-l-shape-tick($size: 20px, $thickness: 2px, $color: var(--primary), $direction: bottom right) {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: $size;
+  height: $size;
+
+  background: linear-gradient(to right, $color, $color) $direction/50% $thickness no-repeat,
+    linear-gradient(to bottom, $color, $color) $direction/$thickness 50% no-repeat;
+}

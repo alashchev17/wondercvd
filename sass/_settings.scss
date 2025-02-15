@@ -46,6 +46,7 @@ body {
 
 .container {
   position: relative;
+  width: 100%;
   max-width: 1180px;
   margin: 0 auto;
 }
@@ -227,4 +228,8 @@ input {
 }
 .gap-6 {
   gap: var(--offset-a6);
+}
+
+.highlight {
+  font-weight: $font-weight-extra-bold;
 }

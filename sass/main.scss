@@ -1,6 +1,7 @@
 // Core styles
 @import 'normalize';
 @import 'variables';
+@import 'mixins';
 @import 'settings';
 @import 'media';
 // Components
@@ -11,5 +12,6 @@
 @import 'sections/header';
 @import 'sections/hero';
 @import 'sections/slogan';
+@import 'sections/history';
 // Media Queries
 @import 'media';

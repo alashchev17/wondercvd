@@ -1,0 +1,44 @@
+.history {
+  &__subsection {
+    padding: var(--offset-a2) 0;
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+  }
+  &__image {
+    aspect-ratio: 500 / 360;
+    max-width: 500px;
+    object-fit: cover;
+    object-position: 85% top;
+    clip-path: polygon(
+      15px 0,
+      /* Point 1: Start 15px from left at the top edge */ 100% 0,
+      /* Point 2: Top-right corner */ 100% calc(100% - 15px),
+      /* Point 3: Right edge, 15px up from bottom */ calc(100% - 15px) 100%,
+      /* Point 4: Bottom edge, 15px left from right */ 0 100%,
+      /* Point 5: Bottom-left corner */ 0 15px /* Point 6: Left edge, 15px down from top */
+    );
+  }
+  &__info {
+    position: relative;
+    max-width: 50%;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: 32px;
+      background-color: var(--primary);
+    }
+    &::after {
+      @include solid-color-l-shape-tick(20px, 2px, var(--primary), bottom right);
+    }
+    &-inner {
+      margin-left: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+}

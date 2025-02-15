@@ -351,6 +351,7 @@ body {
 
 .container {
   position: relative;
+  width: 100%;
   max-width: 1180px;
   margin: 0 auto;
 }
@@ -557,6 +558,10 @@ input {
   gap: var(--offset-a6);
 }
 
+.highlight {
+  font-weight: 800;
+}
+
 @media screen and (max-width: 768px) {
   :root {
     --h1-size: 40px;
@@ -680,6 +685,8 @@ input {
   left: 0;
   width: 100%;
   z-index: 20;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
   max-height: 96.4px;
   transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
 }
@@ -862,6 +869,51 @@ input {
   margin-right: 100px;
   text-transform: none;
   font-weight: 100;
+}
+
+.history__subsection {
+  padding: var(--offset-a2) 0;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+}
+.history__image {
+  aspect-ratio: 500/360;
+  max-width: 500px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: 85% top;
+     object-position: 85% top;
+  -webkit-clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px);
+          clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px);
+}
+.history__info {
+  position: relative;
+  max-width: 50%;
+}
+.history__info::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 32px;
+  background-color: var(--primary);
+}
+.history__info::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(to right, var(--primary), var(--primary)) bottom right/50% 2px no-repeat, linear-gradient(to bottom, var(--primary), var(--primary)) bottom right/2px 50% no-repeat;
+}
+.history__info-inner {
+  margin-left: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 @media screen and (max-width: 768px) {
