@@ -14,7 +14,7 @@
     border-color: var(--light-gray);
   }
   &__container {
-    padding: 13px 0;
+    padding: 9px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -22,11 +22,8 @@
   &__logo {
     &-image {
       display: inline-block;
-      width: 188px;
-      height: 66px;
-      svg {
-        color: var(--white);
-      }
+      width: 128px;
+      height: 46px;
     }
   }
   &__right {

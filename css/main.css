@@ -687,7 +687,7 @@ input {
   z-index: 20;
   -webkit-backdrop-filter: blur(10px);
           backdrop-filter: blur(10px);
-  max-height: 96.4px;
+  max-height: 64px;
   transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
 }
 .header.fixed {
@@ -697,18 +697,15 @@ input {
   border-color: var(--light-gray);
 }
 .header__container {
-  padding: 13px 0;
+  padding: 9px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 .header__logo-image {
   display: inline-block;
-  width: 188px;
-  height: 66px;
-}
-.header__logo-image svg {
-  color: var(--white);
+  width: 128px;
+  height: 46px;
 }
 .header__right {
   display: flex;
@@ -763,7 +760,7 @@ input {
 }
 
 .hero {
-  padding-top: 96.4px;
+  padding-top: 64px;
   min-height: 700px;
   display: flex;
   align-items: center;

@@ -10,14 +10,7 @@
     max-width: 500px;
     object-fit: cover;
     object-position: 85% top;
-    clip-path: polygon(
-      15px 0,
-      /* Point 1: Start 15px from left at the top edge */ 100% 0,
-      /* Point 2: Top-right corner */ 100% calc(100% - 15px),
-      /* Point 3: Right edge, 15px up from bottom */ calc(100% - 15px) 100%,
-      /* Point 4: Bottom edge, 15px left from right */ 0 100%,
-      /* Point 5: Bottom-left corner */ 0 15px /* Point 6: Left edge, 15px down from top */
-    );
+    @include cut-off-left-top-and-right-bottom-corners;
   }
   &__info {
     position: relative;
