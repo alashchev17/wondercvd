@@ -1,5 +1,11 @@
 .team {
+  position: relative;
   padding: var(--offset-a2) 0;
+  &__ellipse {
+    position: absolute;
+    top: 0;
+    right: -175px;
+  }
   &__container {
   }
   &__title {
@@ -10,6 +16,12 @@
     max-width: 70%;
     position: relative;
     @include primary-quotation;
+    &-hexagons {
+      position: absolute;
+      top: 7px;
+      width: 435px;
+      right: calc(-435px - 57px);
+    }
     margin-bottom: var(--offset-a3);
     &-inner {
       margin-left: 46px;

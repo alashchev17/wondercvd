@@ -1,8 +1,29 @@
 .ellipse {
+  $base-color: #207376;
+  // default values for ellipse without modifiers
   width: 320px;
   height: 320px;
-
-  background: rgba(32, 115, 118, 0.5);
+  background: rgba($base-color, 0.5);
   mix-blend-mode: normal;
   filter: blur(186.25px);
+  // intensity modifier
+  @for $x from 10 through 1000 {
+    &--intensity-#{$x} {
+      filter: unquote('blur(#{($x)}px);');
+    }
+  }
+  // size modifier
+  @for $x from 10 through 1000 {
+    &--size-#{$x} {
+      width: #{$x}px;
+      height: #{$x}px;
+    }
+  }
+  // opacity modifier
+  @for $x from 1 through 100 {
+    &--opacity-#{$x} {
+      $opacity: $x / 100;
+      background: rgba($base-color, $opacity);
+    }
+  }
 }
