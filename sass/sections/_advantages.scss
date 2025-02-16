@@ -1,0 +1,49 @@
+.advantages {
+  $margin-top: 64px;
+  padding: var(--offset-a2) 0;
+  margin-bottom: var(--offset-a2);
+  background-image: url('../images/advantages-bg.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  &__title {
+    text-transform: uppercase;
+    &--desktop {
+      max-width: calc((100% / 3) - 15px);
+      margin-top: calc($margin-top - 5px);
+    }
+    &--mobile {
+      display: none;
+    }
+  }
+  &__subtitle {
+    text-transform: uppercase;
+  }
+  &__slider {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 20px;
+    justify-content: space-between;
+  }
+  &__slide {
+    position: relative;
+    padding-top: $margin-top;
+    height: 310px;
+    max-width: calc((100% / 3) - 15px);
+    background: linear-gradient(180deg, #000 0%, rgba(0, 0, 0, 0) 100%);
+    @include cut-off-left-top-and-right-bottom-corners(15px, 2, darken($white, 70%), 'true');
+    border: 2px solid darken($white, 70%);
+    &-inner {
+      @include primary-quotation(64px);
+      padding: 0 32px 0 45px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+  &__text {
+    font-weight: 100;
+    font-size: 16px;
+    line-height: 121%;
+  }
+}

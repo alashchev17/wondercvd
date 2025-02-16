@@ -10,22 +10,53 @@
     linear-gradient(to bottom, $color, $color) $direction/$thickness 50% no-repeat;
 }
 
-@mixin cut-off-left-top-and-right-bottom-corners() {
+@mixin cut-off-left-top-and-right-bottom-corners(
+  $size: 15px,
+  $border-width: 1,
+  $border-color: darken($white, 0.5),
+  $should-border-be-visible: 'false'
+) {
   clip-path: polygon(
-    15px 0,
+    $size 0,
     /* Point 1: Start 15px from left at the top edge */ 100% 0,
-    /* Point 2: Top-right corner */ 100% calc(100% - 15px),
-    /* Point 3: Right edge, 15px up from bottom */ calc(100% - 15px) 100%,
+    /* Point 2: Top-right corner */ 100% calc(100% - $size),
+    /* Point 3: Right edge, 15px up from bottom */ calc(100% - $size) 100%,
     /* Point 4: Bottom edge, 15px left from right */ 0 100%,
-    /* Point 5: Bottom-left corner */ 0 15px /* Point 6: Left edge, 15px down from top */
+    /* Point 5: Bottom-left corner */ 0 $size /* Point 6: Left edge, 15px down from top */
   );
+  @if $should-border-be-visible == 'true' {
+    position: relative;
+    &::before {
+      content: '';
+      position: absolute;
+      top: calc(($size / -5) * $border-width);
+      left: calc($size / 2.459);
+      width: #{$border-width}px;
+      height: calc($size * 1.4);
+      background-color: $border-color;
+      transform: rotate(45deg);
+      pointer-events: none;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: calc(($size / -5) * $border-width);
+      right: calc($size / 2.459);
+      width: #{$border-width}px;
+      height: calc($size * 1.4);
+      background-color: $border-color;
+      transform: rotate(45deg);
+      pointer-events: none;
+    }
+  }
 }
 
-@mixin primary-quotation() {
+@mixin primary-quotation($top: 0) {
   &::before {
     content: '';
     position: absolute;
-    top: 0;
+    top: $top;
     left: 0;
     width: 3px;
     height: 32px;

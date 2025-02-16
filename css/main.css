@@ -8305,6 +8305,9 @@ img {
           clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px);
 }
 
+.details {
+  margin-bottom: var(--offset-a2);
+}
 .details__title {
   text-align: center;
   text-transform: uppercase;
@@ -8410,6 +8413,87 @@ img {
   font-size: 13px;
   font-weight: 400;
   max-width: 365px;
+}
+
+.advantages {
+  padding: var(--offset-a2) 0;
+  margin-bottom: var(--offset-a2);
+  background-image: url("../images/advantages-bg.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+.advantages__title {
+  text-transform: uppercase;
+}
+.advantages__title--desktop {
+  max-width: calc(33.3333333333% - 15px);
+  margin-top: 59px;
+}
+.advantages__title--mobile {
+  display: none;
+}
+.advantages__subtitle {
+  text-transform: uppercase;
+}
+.advantages__slider {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 20px;
+  justify-content: space-between;
+}
+.advantages__slide {
+  position: relative;
+  padding-top: 64px;
+  height: 310px;
+  max-width: calc(33.3333333333% - 15px);
+  background: linear-gradient(180deg, #000 0%, rgba(0, 0, 0, 0) 100%);
+  -webkit-clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px);
+          clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px);
+  position: relative;
+  border: 2px solid #4d4d4d;
+}
+.advantages__slide::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: 6.1000406669px;
+  width: 2px;
+  height: 21px;
+  background-color: #4d4d4d;
+  transform: rotate(45deg);
+  pointer-events: none;
+}
+.advantages__slide::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  right: 6.1000406669px;
+  width: 2px;
+  height: 21px;
+  background-color: #4d4d4d;
+  transform: rotate(45deg);
+  pointer-events: none;
+}
+.advantages__slide-inner {
+  padding: 0 32px 0 45px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.advantages__slide-inner::before {
+  content: "";
+  position: absolute;
+  top: 64px;
+  left: 0;
+  width: 3px;
+  height: 32px;
+  background-color: var(--primary);
+}
+.advantages__text {
+  font-weight: 100;
+  font-size: 16px;
+  line-height: 121%;
 }
 
 @media screen and (max-width: 768px) {

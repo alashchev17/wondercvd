@@ -22,7 +22,7 @@
   // opacity modifier
   @for $x from 1 through 100 {
     &--opacity-#{$x} {
-      $opacity: $x / 100;
+      $opacity: calc($x / 100);
       background: rgba($base-color, $opacity);
     }
   }
