@@ -32,3 +32,61 @@
     background-color: var(--primary);
   }
 }
+
+// requires &-inner element to exist
+@mixin l-shape-ticks-on-four-sides($color: var(--primary), $container-padding: 40px 100px 11px 100px, $size: 15px, $thickness: 2px) {
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: $size;
+    height: $size;
+    border: $thickness solid $color;
+  }
+
+  // Top-right corner
+  &::before {
+    top: 0;
+    right: 0;
+    border-left: none;
+    border-bottom: none;
+  }
+
+  // Bottom-left corner
+  &::after {
+    bottom: 0;
+    left: 0;
+    border-right: none;
+    border-top: none;
+  }
+  &-inner {
+    padding: $container-padding;
+    position: relative;
+
+    // Top-left and bottom-left corners
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      width: $size;
+      height: $size;
+      border: $thickness solid $color;
+    }
+
+    // Top-left corner
+    &::before {
+      top: 0;
+      left: 0;
+      border-right: none;
+      border-bottom: none;
+    }
+
+    // Bottom-right corner
+    &::after {
+      bottom: 0;
+      right: 0;
+      border-left: none;
+      border-top: none;
+    }
+  }
+}

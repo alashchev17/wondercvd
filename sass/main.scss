@@ -5,6 +5,7 @@
 @import 'settings';
 @import 'media';
 // Components
+@import 'components/line-splitter';
 @import 'components/lines';
 @import 'components/button';
 @import 'components/ellipse';
@@ -15,5 +16,7 @@
 @import 'sections/slogan';
 @import 'sections/history';
 @import 'sections/team';
+@import 'sections/solution';
+@import 'sections/details';
 // Media Queries
 @import 'media';

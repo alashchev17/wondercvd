@@ -17,72 +17,14 @@
     font-size: 40px;
   }
   &__slogan {
+    position: relative;
     margin-top: 16px;
     margin-left: auto;
     max-width: 590px;
-
-    &-inner {
-      padding: 12px 30px 12px 70px;
-      position: relative;
-
-      // Top-left and bottom-left corners
-      &::before,
-      &::after {
-        content: '';
-        position: absolute;
-        width: 15px;
-        height: 15px;
-        border: 1px solid var(--white);
-      }
-
-      // Top-left corner
-      &::before {
-        top: 0;
-        left: 0;
-        border-right: none;
-        border-bottom: none;
-      }
-
-      // Bottom-right corner
-      &::after {
-        bottom: 0;
-        right: 0;
-        border-left: none;
-        border-top: none;
-      }
-    }
-
+    @include l-shape-ticks-on-four-sides(var(--white), 12px 30px 12px 70px, 11px, 1px);
     &-title {
       font-weight: $font-weight-thin;
       text-transform: uppercase;
-      position: relative;
-
-      // This creates the other two corners
-      &::before,
-      &::after {
-        content: '';
-        position: absolute;
-        width: 15px;
-        height: 15px;
-        border: 1px solid var(--white);
-      }
-
-      // Top-right corner
-      &::before {
-        top: -12px;
-        right: -30px; // Adjusted to match right padding
-        border-left: none;
-        border-bottom: none;
-      }
-
-      // Bottom-left corner
-      &::after {
-        bottom: -12px;
-        left: -70px; // Adjusted to match left padding
-        border-right: none;
-        border-top: none;
-      }
-
       &--highlight {
         font-weight: $font-weight-bold;
       }

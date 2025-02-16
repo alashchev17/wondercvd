@@ -1,0 +1,41 @@
+.solution {
+  margin-bottom: var(--offset-a2);
+  &__container {
+    position: relative;
+  }
+  &__ellipse {
+    &-container {
+      position: absolute;
+      top: 215px;
+      left: -213px;
+      z-index: -1;
+    }
+    &--second {
+      position: absolute;
+      top: 85px;
+      left: 200px;
+    }
+  }
+  &__title {
+    max-width: 75%;
+    text-transform: uppercase;
+    margin-bottom: var(--offset-a4);
+  }
+  &__slider {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+  &__slide {
+    display: flex;
+    flex-direction: column;
+    gap: var(--offset-a5);
+    &-title {
+      text-transform: uppercase;
+    }
+  }
+  &__image {
+    max-width: 481px;
+    @include cut-off-left-top-and-right-bottom-corners;
+  }
+}
