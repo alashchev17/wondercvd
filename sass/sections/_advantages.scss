@@ -1,4 +1,5 @@
 .advantages {
+  position: relative;
   $margin-top: 64px;
   padding: var(--offset-a2) 0;
   margin-bottom: var(--offset-a2);
@@ -6,6 +7,7 @@
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
+  z-index: $sections-index;
   &__title {
     text-transform: uppercase;
     &--desktop {

@@ -3,7 +3,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 20;
+  z-index: $header-index;
   backdrop-filter: blur(10px);
   max-height: $header-height;
   transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;

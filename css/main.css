@@ -8416,12 +8416,14 @@ img {
 }
 
 .advantages {
+  position: relative;
   padding: var(--offset-a2) 0;
   margin-bottom: var(--offset-a2);
   background-image: url("../images/advantages-bg.png");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
+  z-index: 10;
 }
 .advantages__title {
   text-transform: uppercase;
