@@ -32,9 +32,9 @@
       top: -#{$border-width}px;
       left: -#{$border-width}px;
 
-      $poligon-border-factor: calc($border-width * 1.5);
-      width: calc($size + #{$poligon-border-factor}px);
-      height: calc($size + #{$poligon-border-factor}px);
+      $polygon-border-factor: calc($border-width * 1.5);
+      width: calc($size + #{$polygon-border-factor}px);
+      height: calc($size + #{$polygon-border-factor}px);
 
       background-color: $border-color;
       clip-path: polygon(0 0, 0% 100%, 100% 0);
@@ -46,9 +46,9 @@
       bottom: -#{$border-width}px;
       right: -#{$border-width}px;
 
-      $poligon-border-factor: calc($border-width * 1.5);
-      width: calc($size + #{$poligon-border-factor}px);
-      height: calc($size + #{$poligon-border-factor}px);
+      $polygon-border-factor: calc($border-width * 1.5);
+      width: calc($size + #{$polygon-border-factor}px);
+      height: calc($size + #{$polygon-border-factor}px);
 
       background-color: $border-color;
       clip-path: polygon(100% 100%, 0% 100%, 100% 0);
