@@ -1,0 +1,47 @@
+.contact {
+  margin-bottom: var(--offset-a2);
+  &__container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  &__ellipse {
+    &-container {
+      position: absolute;
+      bottom: -160px;
+      right: 85px;
+      z-index: -1;
+    }
+    &--second {
+      position: absolute;
+      top: 85px;
+      left: 200px;
+    }
+  }
+  &__title {
+    max-width: 45%;
+    text-transform: uppercase;
+    font-size: 32px;
+  }
+  &__action {
+    width: 100%;
+    max-width: 50%;
+  }
+  &__form {
+    margin-top: calc(var(--offset-a4) / 3);
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+    &-title {
+      text-transform: uppercase;
+    }
+  }
+  &__button {
+    margin-top: var(--offset-a4);
+    font-size: 14px;
+    max-width: 50%;
+    width: 100%;
+    justify-content: space-between;
+  }
+}

@@ -1,0 +1,32 @@
+.promotion {
+  margin-bottom: var(--offset-a2);
+  &__container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__image {
+    margin: 0 auto;
+  }
+  &__hexagons {
+    position: absolute;
+    right: 0;
+    bottom: -25px;
+  }
+  &__info {
+    position: relative;
+    max-width: 50%;
+
+    @include primary-quotation;
+    &-inner {
+      margin-left: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+  &__text {
+    font-size: 16px;
+  }
+}

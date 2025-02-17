@@ -36,15 +36,33 @@
 
   // Primary variant
   &--primary {
-    color: var(--primary);
-    border-color: var(--primary);
-
-    &:hover {
+    position: relative;
+    padding: 15px 15px 15px 25px;
+    justify-content: flex-start;
+    border-left-color: transparent;
+    &::after {
+      content: '';
+      position: absolute;
+      width: 3px;
       background-color: var(--primary);
+      height: 100%;
+      left: -1px;
+      top: 52.5%;
+      transform: translateY(-50%);
+      transition: height 0.3s ease-in-out;
+    }
+    &:hover {
+      border-color: var(--white-30);
       color: white;
+      &::after {
+        height: calc(100% + 1.34px);
+      }
 
       .button__icon {
         transform: rotate(90deg);
+        svg {
+          color: var(--primary);
+        }
       }
     }
   }

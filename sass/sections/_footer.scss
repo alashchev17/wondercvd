@@ -1,0 +1,29 @@
+.footer {
+  $footer-margin: 15px;
+  margin-bottom: $footer-margin;
+  &__ellipse {
+    position: absolute;
+    left: 50%;
+    bottom: -$footer-margin;
+    height: 100px;
+    transform: translateX(-50%);
+  }
+  &__block {
+    max-width: 50%;
+    margin-left: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__link,
+  &__copyright {
+    opacity: 0.2;
+  }
+
+  &__link {
+    transition: opacity 0.3s ease-in-out;
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
