@@ -29,25 +29,29 @@
     &::before {
       content: '';
       position: absolute;
-      top: calc(($size / -5) * $border-width);
-      left: calc($size / 2.459);
-      width: #{$border-width}px;
-      height: calc($size * 1.4);
+      top: -#{$border-width}px;
+      left: -#{$border-width}px;
+
+      $poligon-border-factor: calc($border-width * 1.5);
+      width: calc($size + #{$poligon-border-factor}px);
+      height: calc($size + #{$poligon-border-factor}px);
+
       background-color: $border-color;
-      transform: rotate(45deg);
-      pointer-events: none;
+      clip-path: polygon(0 0, 0% 100%, 100% 0);
     }
 
     &::after {
       content: '';
       position: absolute;
-      bottom: calc(($size / -5) * $border-width);
-      right: calc($size / 2.459);
-      width: #{$border-width}px;
-      height: calc($size * 1.4);
+      bottom: -#{$border-width}px;
+      right: -#{$border-width}px;
+
+      $poligon-border-factor: calc($border-width * 1.5);
+      width: calc($size + #{$poligon-border-factor}px);
+      height: calc($size + #{$poligon-border-factor}px);
+
       background-color: $border-color;
-      transform: rotate(45deg);
-      pointer-events: none;
+      clip-path: polygon(100% 100%, 0% 100%, 100% 0);
     }
   }
 }
