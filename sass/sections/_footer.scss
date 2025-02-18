@@ -7,6 +7,7 @@
     bottom: -$footer-margin;
     height: 100px;
     transform: translateX(-50%);
+    z-index: $ellipse-index;
   }
   &__block {
     max-width: 50%;

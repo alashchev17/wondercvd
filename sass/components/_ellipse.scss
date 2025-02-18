@@ -5,6 +5,7 @@
   height: 320px;
   background: rgba($base-color, 0.5);
   mix-blend-mode: normal;
+  z-index: $ellipse-index;
   filter: blur(186.25px);
   // intensity modifier
   @for $x from 10 through 1000 {

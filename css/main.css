@@ -719,6 +719,7 @@ img {
   height: 320px;
   background: rgba(32, 115, 118, 0.5);
   mix-blend-mode: normal;
+  z-index: -1;
   filter: blur(186.25px);
 }
 .ellipse--intensity-10 {
@@ -8706,6 +8707,7 @@ img {
   bottom: -15px;
   height: 100px;
   transform: translateX(-50%);
+  z-index: -1;
 }
 .footer__block {
   max-width: 50%;
