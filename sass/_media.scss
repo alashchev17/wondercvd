@@ -40,6 +40,11 @@
 }
 
 @media screen and (max-width: $breakpoint-md) {
+  .line-splitter {
+    &--mobile {
+      display: block;
+    }
+  }
   .header {
     &__container {
       position: relative;
@@ -106,6 +111,31 @@
         border-top: 1px solid var(--white);
       }
       border-bottom: 1px solid var(--white);
+    }
+  }
+
+  .hero {
+    &__slogan {
+      margin-top: 38px;
+      max-width: 255px;
+      &-inner {
+        padding: 19px 6px 19px 29px;
+      }
+    }
+  }
+
+  .slogan {
+    &__title {
+      &-element {
+        &:nth-child(3) {
+          margin-left: 25%;
+        }
+      }
+    }
+    &__author {
+      margin-left: 33%;
+      margin-right: unset;
+      width: 67%;
     }
   }
 }
