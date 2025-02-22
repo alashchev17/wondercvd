@@ -179,4 +179,13 @@
       }
     }
   }
+
+  .solution {
+    &__title {
+      max-width: 100%;
+    }
+    &__slide {
+      max-width: 315px;
+    }
+  }
 }

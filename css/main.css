@@ -722,6 +722,12 @@ img {
   .team__info-inner {
     margin-left: 20px;
   }
+  .solution__title {
+    max-width: 100%;
+  }
+  .solution__slide {
+    max-width: 315px;
+  }
 }
 .line-splitter {
   display: block;
@@ -9051,5 +9057,11 @@ img {
   }
   .team__info-inner {
     margin-left: 20px;
+  }
+  .solution__title {
+    max-width: 100%;
+  }
+  .solution__slide {
+    max-width: 315px;
   }
 }/*# sourceMappingURL=main.css.map */
