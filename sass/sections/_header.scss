@@ -28,7 +28,7 @@
     background-color: var(--black);
     #{$self}__ellipse {
       display: block !important;
-      z-index: 1;
+      z-index: 0;
     }
   }
   &__container {

@@ -707,9 +707,6 @@ img {
   .history__info-inner {
     padding-bottom: 30px;
   }
-  .team__title {
-    font-size: 24px;
-  }
   .team__info {
     max-width: 100%;
   }
@@ -8289,7 +8286,7 @@ img {
 }
 .header.active .header__ellipse {
   display: block !important;
-  z-index: 1;
+  z-index: 0;
 }
 .header__container {
   padding: 9px 0;
@@ -9042,9 +9039,6 @@ img {
   }
   .history__info-inner {
     padding-bottom: 30px;
-  }
-  .team__title {
-    font-size: 24px;
   }
   .team__info {
     max-width: 100%;
