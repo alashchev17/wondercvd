@@ -44,6 +44,9 @@
     &--mobile {
       display: block;
     }
+    &--desktop {
+      display: none;
+    }
   }
   .ellipse {
     &--mobile {
@@ -155,6 +158,24 @@
       max-width: 100%;
       &-inner {
         padding-bottom: 30px;
+      }
+    }
+  }
+
+  .team {
+    &__title {
+      font-size: 24px;
+    }
+    &__info {
+      max-width: 100%;
+      &-hexagons {
+        right: -15px;
+        top: unset;
+        bottom: -190px;
+        width: 245px;
+      }
+      &-inner {
+        margin-left: 20px;
       }
     }
   }
