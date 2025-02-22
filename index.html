@@ -10,7 +10,7 @@
     <meta name="apple-mobile-web-app-title" content="WonderCVD" />
     <link rel="manifest" href="/site.webmanifest" />
     <link rel="stylesheet" href="./css/main.css" />
-    <title>WonderCVD.RU</title>
+    <title>WonderCVD</title>
   </head>
   <body>
     <div class="container">
@@ -27,17 +27,14 @@
         <a href="#hero" class="logo header__logo">
           <img class="header__logo-image" src="./images/icons/wonder-logo.svg" />
         </a>
-        <div class="header__right">
+        <div class="header__menu">
           <nav class="nav header__nav">
-            <a href="#" class="nav__close">
-              <span class="nav__close-icon"></span>
-            </a>
             <ul class="nav__list">
               <li class="nav__item">
-                <a href="#cell" class="nav__link">О нас</a>
+                <a href="#team" class="nav__link">О нас</a>
               </li>
               <li class="nav__item">
-                <a href="#system" class="nav__link">Команда</a>
+                <a href="#team" class="nav__link">Команда</a>
               </li>
               <li class="nav__item">
                 <a href="#advantages" class="nav__link">Технология</a>
@@ -45,9 +42,17 @@
               <li class="nav__item">
                 <a href="#applications" class="nav__link">Преимущества</a>
               </li>
+              <a href="#" class="button header__button header__button--mobile button--primary">
+                Связаться
+                <i class="button__icon">
+                  <svg viewBox="0 0 15 12">
+                    <use xlink:href="./images/sprite.svg#button-arrow"></use>
+                  </svg>
+                </i>
+              </a>
             </ul>
           </nav>
-          <a href="#" data-modal="true" class="button button--menu">
+          <a href="#" class="button header__button header__button--desktop button--menu">
             Связаться
             <i class="button__icon">
               <svg viewBox="0 0 15 12">
@@ -56,7 +61,11 @@
             </i>
           </a>
         </div>
-        <a href="#" class="header__burger"></a>
+        <a href="#" class="header__burger">
+          <span class="header__burger-item"></span>
+          <span class="header__burger-item"></span>
+          <span class="header__burger-item"></span>
+        </a>
       </div>
     </header>
     <section class="hero">
@@ -401,5 +410,13 @@
         </div>
       </div>
     </footer>
+    <script src="./scripts/libs/jquery-3.6.4.min.js"></script>
+    <script src="./scripts/libs/slick.min.js"></script>
+    <script src="./scripts/libs/lenis.min.js"></script>
+    <script src="./scripts/libs/gsap.min.js"></script>
+    <script src="./scripts/libs/ScrollTrigger.min.js"></script>
+    <script src="./scripts/libs/CustomEase.min.js"></script>
+    <!-- <script src="./scripts/js/main-min.js"></script> -->
+    <script src="./scripts/main.js"></script>
   </body>
 </html>

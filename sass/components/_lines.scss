@@ -1,11 +1,13 @@
 .lines {
   position: fixed;
   top: 0;
-  left: 0;
+  left: 50%;
   right: 0;
   bottom: 0;
+  // width: 100vw;
   width: $container-width;
-  margin: 0 auto;
+  // margin: 0 auto;
+  transform: translateX(-50%);
   min-height: 100dvh;
   height: 100%;
   display: flex;
