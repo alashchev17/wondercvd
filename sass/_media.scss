@@ -59,7 +59,7 @@
         justify-content: space-between;
         margin-top: auto;
         margin-bottom: 45px;
-        width: 50%;
+        width: calc(66% + 2px);
       }
       &--desktop {
         display: none;
@@ -136,6 +136,21 @@
       margin-left: 33%;
       margin-right: unset;
       width: 67%;
+    }
+  }
+  .history {
+    &__subsection {
+      flex-direction: column;
+      gap: 35px;
+    }
+    &__image {
+      max-width: 100%;
+    }
+    &__info {
+      max-width: 100%;
+      &-inner {
+        padding-bottom: 30px;
+      }
     }
   }
 }
