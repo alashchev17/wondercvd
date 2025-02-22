@@ -28,6 +28,15 @@
     padding-left: 9.25px;
     padding-right: 9.25px;
   }
+  .lines {
+    width: calc(100dvw - (9.25px * 2));
+    &__line {
+      &:first-child {
+        display: none;
+      }
+      width: 1.1px;
+    }
+  }
 }
 
 @media screen and (max-width: $breakpoint-md) {

@@ -599,6 +599,15 @@ img {
     padding-left: 9.25px;
     padding-right: 9.25px;
   }
+  .lines {
+    width: calc(100dvw - 18.5px);
+  }
+  .lines__line {
+    width: 1.1px;
+  }
+  .lines__line:first-child {
+    display: none;
+  }
 }
 @media screen and (max-width: 768px) {
   .header__container {
@@ -688,6 +697,9 @@ img {
   background-color: rgba(184, 184, 184, 0.1);
   width: 1px;
   height: 100%;
+}
+.lines.active {
+  z-index: 25;
 }
 
 .button {
@@ -8839,6 +8851,15 @@ img {
   .container {
     padding-left: 9.25px;
     padding-right: 9.25px;
+  }
+  .lines {
+    width: calc(100dvw - 18.5px);
+  }
+  .lines__line {
+    width: 1.1px;
+  }
+  .lines__line:first-child {
+    display: none;
   }
 }
 @media screen and (max-width: 768px) {

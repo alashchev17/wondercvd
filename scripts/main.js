@@ -17,6 +17,7 @@ jQuery(function () {
 
   // Header
   const body = $('body')
+  const lines = $('.lines')
   const header = $('.header')
   const menu = $('.header__menu')
   const burgerButton = $('.header__burger')
@@ -29,6 +30,7 @@ jQuery(function () {
 
     if (isMenuOpened) {
       lenis.start()
+      lines.toggleClass('active')
       menu.toggleClass('active')
       burgerButton.toggleClass('rotate')
       setTimeout(() => {
@@ -38,6 +40,7 @@ jQuery(function () {
     } else {
       lenis.stop()
       burgerButton.toggleClass('active')
+      lines.toggleClass('active')
       header.toggleClass('active')
       setTimeout(() => {
         menu.toggleClass('active')
