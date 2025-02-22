@@ -1,4 +1,5 @@
 .header {
+  $self: &;
   position: fixed;
   top: 0;
   left: 0;
@@ -8,8 +9,27 @@
   backdrop-filter: blur(10px);
   max-height: $header-height;
   transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+  &__nav {
+    position: relative;
+  }
+  &__ellipse {
+    display: none !important;
+    position: absolute;
+    bottom: -20px;
+    right: -90px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    &.active {
+      opacity: 1;
+    }
+  }
   &.active {
     background-color: var(--black);
+    #{$self}__ellipse {
+      display: block !important;
+      z-index: 1;
+    }
   }
   &__container {
     padding: 9px 0;

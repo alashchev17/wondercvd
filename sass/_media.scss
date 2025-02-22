@@ -45,6 +45,11 @@
       display: block;
     }
   }
+  .ellipse {
+    &--mobile {
+      display: block;
+    }
+  }
   .header {
     &__container {
       position: relative;

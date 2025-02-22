@@ -19,6 +19,7 @@ jQuery(function () {
   const body = $('body')
   const lines = $('.lines')
   const header = $('.header')
+  const headerEllipse = $('.header__ellipse')
   const menu = $('.header__menu')
   const burgerButton = $('.header__burger')
 
@@ -30,12 +31,15 @@ jQuery(function () {
 
     if (isMenuOpened) {
       lenis.start()
-      lines.toggleClass('active')
-      menu.toggleClass('active')
-      burgerButton.toggleClass('rotate')
+      headerEllipse.toggleClass('active')
       setTimeout(() => {
-        burgerButton.toggleClass('active')
-        header.toggleClass('active')
+        lines.toggleClass('active')
+        menu.toggleClass('active')
+        burgerButton.toggleClass('rotate')
+        setTimeout(() => {
+          burgerButton.toggleClass('active')
+          header.toggleClass('active')
+        }, 300)
       }, 300)
     } else {
       lenis.stop()
@@ -45,6 +49,9 @@ jQuery(function () {
       setTimeout(() => {
         menu.toggleClass('active')
         burgerButton.toggleClass('rotate')
+        setTimeout(() => {
+          headerEllipse.toggleClass('active')
+        }, 300)
       }, 300)
     }
 

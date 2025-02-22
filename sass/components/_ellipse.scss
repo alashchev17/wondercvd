@@ -27,4 +27,7 @@
       background: rgba($base-color, $opacity);
     }
   }
+  &--mobile {
+    display: none;
+  }
 }
