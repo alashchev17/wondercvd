@@ -133,6 +133,17 @@
   }
 
   .slogan {
+    &__hexagons {
+      max-width: 258px;
+      top: 25px;
+    }
+    &__ellipse {
+      top: unset;
+      right: unset;
+      transform: unset;
+      left: -28px;
+      bottom: 0;
+    }
     &__title {
       &-element {
         &:nth-child(3) {

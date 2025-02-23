@@ -432,6 +432,7 @@ img {
   font-size: var(--text-body-size);
   font-weight: 100;
   font-family: "Geologica", sans-serif;
+  line-height: 1.25;
 }
 
 .text-body-accent {
@@ -685,6 +686,17 @@ img {
   }
   .hero__slogan-inner {
     padding: 19px 6px 19px 29px;
+  }
+  .slogan__hexagons {
+    max-width: 258px;
+    top: 25px;
+  }
+  .slogan__ellipse {
+    top: unset;
+    right: unset;
+    transform: unset;
+    left: -28px;
+    bottom: 0;
   }
   .slogan__title-element:nth-child(3) {
     margin-left: 25%;
@@ -9020,6 +9032,17 @@ img {
   }
   .hero__slogan-inner {
     padding: 19px 6px 19px 29px;
+  }
+  .slogan__hexagons {
+    max-width: 258px;
+    top: 25px;
+  }
+  .slogan__ellipse {
+    top: unset;
+    right: unset;
+    transform: unset;
+    left: -28px;
+    bottom: 0;
   }
   .slogan__title-element:nth-child(3) {
     margin-left: 25%;
