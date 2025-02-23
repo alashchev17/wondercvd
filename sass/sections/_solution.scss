@@ -79,10 +79,6 @@
           transform: rotate(-180deg);
         }
       }
-      &--next {
-        #{$self}-icon {
-        }
-      }
     }
     &-wrapper {
       display: flex;
