@@ -12,6 +12,7 @@
     @include l-shape-ticks-on-four-sides($size: 11px);
     &-image {
       position: absolute;
+      max-width: 490px;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);

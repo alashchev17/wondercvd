@@ -8657,6 +8657,7 @@ img {
 }
 .details__info-image {
   position: absolute;
+  max-width: 490px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -8806,6 +8807,7 @@ img {
 }
 .promotion__image {
   margin: 0 auto;
+  max-width: 400px;
 }
 .promotion__hexagons {
   position: absolute;
