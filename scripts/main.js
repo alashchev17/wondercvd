@@ -58,6 +58,42 @@ jQuery(function () {
     isMenuOpened = !isMenuOpened
   })
 
+  // Anchors
+  $('a[href^="#"]').bind('click', function (e) {
+    e.preventDefault()
+    var anchor = $(this)
+    if (anchor.attr('href') !== '#') {
+      const isHeroAnchor = anchor.attr('href') === '#hero'
+      const offsetTop = isHeroAnchor ? 0 : $('.header').height() + 32
+      const overallScrollTop = $(anchor.attr('href')).offset().top - offsetTop
+
+      function smoothAnimate() {
+        $('html').stop().animate(
+          {
+            scrollTop: overallScrollTop,
+          },
+          1200
+        )
+      }
+      if (menu.hasClass('active')) {
+        lenis.start()
+        headerEllipse.toggleClass('active')
+        setTimeout(() => {
+          lines.toggleClass('active')
+          menu.toggleClass('active')
+          burgerButton.toggleClass('rotate')
+          setTimeout(() => {
+            burgerButton.toggleClass('active')
+            header.toggleClass('active')
+          }, 300)
+        }, 300)
+        setTimeout(smoothAnimate, 600)
+        return
+      }
+      smoothAnimate()
+    }
+  })
+
   // Solution slider
 
   function destroyAndReinitializeSolutionSlider() {
@@ -70,8 +106,9 @@ jQuery(function () {
       solutionSlider.slick('destroy')
     }
     if ($(window).width() > 768) {
-      // переназначение кнопок управление в слайдер для десктопной версии
-      solutionSlider.slick('destroy')
+      if (solutionSlider.hasClass('slick-initialized')) {
+        solutionSlider.slick('destroy')
+      }
     } else {
       solutionSlider.slick({
         nextArrow: sliderButtons.nextArrow,
@@ -110,8 +147,9 @@ jQuery(function () {
       advantagesSlider.slick('destroy')
     }
     if ($(window).width() > 768) {
-      // переназначение кнопок управление в слайдер для десктопной версии
-      advantagesSlider.slick('destroy')
+      if (advantagesSlider.hasClass('slick-initialized')) {
+        advantagesSlider.slick('destroy')
+      }
     } else {
       advantagesSlider.slick({
         nextArrow: sliderButtons.nextArrow,
