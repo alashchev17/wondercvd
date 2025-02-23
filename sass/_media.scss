@@ -52,6 +52,9 @@
     &--mobile {
       display: block;
     }
+    &--desktop {
+      display: none;
+    }
   }
   .header {
     &__container {
@@ -160,10 +163,11 @@
   .history {
     &__subsection {
       flex-direction: column;
-      gap: 35px;
+      gap: var(--offset-a4);
     }
     &__image {
       max-width: 100%;
+      @include cut-off-left-top-and-right-bottom-corners(4px, 1, darken($white, 0.5), 'false');
     }
     &__info {
       max-width: 100%;
@@ -188,12 +192,91 @@
     }
   }
 
+  .player {
+    &-preview {
+      &__image {
+        @include cut-off-left-top-and-right-bottom-corners(4px, 1, darken($white, 0.5), 'false');
+      }
+    }
+  }
+
   .solution {
+    &__ellipse {
+      width: 231px;
+      height: 231px;
+      &--second {
+        top: 60px;
+        left: 150px;
+      }
+      &-container {
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+      }
+    }
     &__title {
       max-width: 100%;
     }
     &__slide {
       max-width: 315px;
+    }
+    &__image {
+      @include cut-off-left-top-and-right-bottom-corners(8px, 1, darken($white, 0.5), 'false');
+    }
+  }
+
+  .details {
+    &__title {
+      text-align: left;
+    }
+    &__info {
+      &::before,
+      &::after {
+        display: none;
+      }
+      &-image {
+        max-width: 200px;
+        top: -25%;
+        left: unset;
+        right: 0;
+        transform: translateY(25%);
+      }
+      &-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+      }
+      &-block {
+        &--left,
+        &--right {
+          text-align: left;
+        }
+      }
+      &-inner {
+        &::before,
+        &::after {
+          display: none;
+        }
+        &--mobile {
+          display: flex;
+        }
+        &--desktop {
+          display: none;
+        }
+        padding: unset;
+      }
+    }
+    &__category {
+      font-size: 12px;
+      letter-spacing: 2.76px;
+    }
+    &__body {
+      font-size: 16px;
+    }
+    &__comment {
+      font-size: 10px;
+      font-weight: 500;
+      max-width: 50%;
     }
   }
 }

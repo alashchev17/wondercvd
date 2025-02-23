@@ -620,6 +620,9 @@ img {
   .ellipse--mobile {
     display: block;
   }
+  .ellipse--desktop {
+    display: none;
+  }
   .header__container {
     position: relative;
   }
@@ -708,10 +711,12 @@ img {
   }
   .history__subsection {
     flex-direction: column;
-    gap: 35px;
+    gap: var(--offset-a4);
   }
   .history__image {
     max-width: 100%;
+    -webkit-clip-path: polygon(4px 0, 100% 0, 100% calc(100% - 4px), calc(100% - 4px) 100%, 0 100%, 0 4px);
+            clip-path: polygon(4px 0, 100% 0, 100% calc(100% - 4px), calc(100% - 4px) 100%, 0 100%, 0 4px);
   }
   .history__info {
     max-width: 100%;
@@ -731,11 +736,77 @@ img {
   .team__info-inner {
     margin-left: 20px;
   }
+  .player-preview__image {
+    -webkit-clip-path: polygon(4px 0, 100% 0, 100% calc(100% - 4px), calc(100% - 4px) 100%, 0 100%, 0 4px);
+            clip-path: polygon(4px 0, 100% 0, 100% calc(100% - 4px), calc(100% - 4px) 100%, 0 100%, 0 4px);
+  }
+  .solution__ellipse {
+    width: 231px;
+    height: 231px;
+  }
+  .solution__ellipse--second {
+    top: 60px;
+    left: 150px;
+  }
+  .solution__ellipse-container {
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+  }
   .solution__title {
     max-width: 100%;
   }
   .solution__slide {
     max-width: 315px;
+  }
+  .solution__image {
+    -webkit-clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+            clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+  }
+  .details__title {
+    text-align: left;
+  }
+  .details__info::before, .details__info::after {
+    display: none;
+  }
+  .details__info-image {
+    max-width: 200px;
+    top: -25%;
+    left: unset;
+    right: 0;
+    transform: translateY(25%);
+  }
+  .details__info-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+  .details__info-block--left, .details__info-block--right {
+    text-align: left;
+  }
+  .details__info-inner {
+    padding: unset;
+  }
+  .details__info-inner::before, .details__info-inner::after {
+    display: none;
+  }
+  .details__info-inner--mobile {
+    display: flex;
+  }
+  .details__info-inner--desktop {
+    display: none;
+  }
+  .details__category {
+    font-size: 12px;
+    letter-spacing: 2.76px;
+  }
+  .details__body {
+    font-size: 16px;
+  }
+  .details__comment {
+    font-size: 10px;
+    font-weight: 500;
+    max-width: 50%;
   }
 }
 .line-splitter {
@@ -8680,6 +8751,9 @@ img {
   flex-direction: column;
   gap: 25px;
 }
+.details__info-inner--mobile {
+  display: none;
+}
 .details__info-row {
   display: flex;
   justify-content: space-between;
@@ -8966,6 +9040,9 @@ img {
   .ellipse--mobile {
     display: block;
   }
+  .ellipse--desktop {
+    display: none;
+  }
   .header__container {
     position: relative;
   }
@@ -9054,10 +9131,12 @@ img {
   }
   .history__subsection {
     flex-direction: column;
-    gap: 35px;
+    gap: var(--offset-a4);
   }
   .history__image {
     max-width: 100%;
+    -webkit-clip-path: polygon(4px 0, 100% 0, 100% calc(100% - 4px), calc(100% - 4px) 100%, 0 100%, 0 4px);
+            clip-path: polygon(4px 0, 100% 0, 100% calc(100% - 4px), calc(100% - 4px) 100%, 0 100%, 0 4px);
   }
   .history__info {
     max-width: 100%;
@@ -9077,10 +9156,76 @@ img {
   .team__info-inner {
     margin-left: 20px;
   }
+  .player-preview__image {
+    -webkit-clip-path: polygon(4px 0, 100% 0, 100% calc(100% - 4px), calc(100% - 4px) 100%, 0 100%, 0 4px);
+            clip-path: polygon(4px 0, 100% 0, 100% calc(100% - 4px), calc(100% - 4px) 100%, 0 100%, 0 4px);
+  }
+  .solution__ellipse {
+    width: 231px;
+    height: 231px;
+  }
+  .solution__ellipse--second {
+    top: 60px;
+    left: 150px;
+  }
+  .solution__ellipse-container {
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+  }
   .solution__title {
     max-width: 100%;
   }
   .solution__slide {
     max-width: 315px;
+  }
+  .solution__image {
+    -webkit-clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+            clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+  }
+  .details__title {
+    text-align: left;
+  }
+  .details__info::before, .details__info::after {
+    display: none;
+  }
+  .details__info-image {
+    max-width: 200px;
+    top: -25%;
+    left: unset;
+    right: 0;
+    transform: translateY(25%);
+  }
+  .details__info-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+  .details__info-block--left, .details__info-block--right {
+    text-align: left;
+  }
+  .details__info-inner {
+    padding: unset;
+  }
+  .details__info-inner::before, .details__info-inner::after {
+    display: none;
+  }
+  .details__info-inner--mobile {
+    display: flex;
+  }
+  .details__info-inner--desktop {
+    display: none;
+  }
+  .details__category {
+    font-size: 12px;
+    letter-spacing: 2.76px;
+  }
+  .details__body {
+    font-size: 16px;
+  }
+  .details__comment {
+    font-size: 10px;
+    font-weight: 500;
+    max-width: 50%;
   }
 }/*# sourceMappingURL=main.css.map */
