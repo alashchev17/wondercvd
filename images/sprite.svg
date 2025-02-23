@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Made in Bigly. www.bigly.studio  -->
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 
 
@@ -22,6 +21,13 @@
     <line x1="0" y1="0.5" x2="10" y2="0.5" stroke="currentColor" stroke-width="1.2"/>
     <line x1="0.65492" y1="8.97118" x2="9.39265" y2="0.637904" stroke="currentColor" stroke-width="1.2"/>
     <line x1="9.5" y1="10" x2="9.5" y2="0" stroke="currentColor" stroke-width="1.2"/>
+  </symbol>
+
+  <!-- Slider Arrow -->
+  <symbol viewBox="0 0 15 15" id="slider-arrow">
+    <line x1="7.42151" y1="1.06566" x2="14.6532" y2="7.97233" stroke="#DE0000"/>
+<line x1="2.00035" y1="7.5" x2="14.0748" y2="7.50847" stroke="#DE0000"/>
+<line x1="7.73021" y1="14.497" x2="14.6369" y2="7.26522" stroke="#DE0000"/>
   </symbol>
 
 

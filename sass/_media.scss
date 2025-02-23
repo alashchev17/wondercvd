@@ -214,8 +214,26 @@
         transform: translateY(-50%);
       }
     }
+    &__slider {
+      &-controls {
+        &--mobile {
+          display: inline-flex;
+        }
+      }
+      &-wrapper {
+        display: block;
+        .slick-list {
+          overflow: unset !important;
+          .slick-track {
+            display: flex !important;
+            gap: 15px;
+          }
+        }
+      }
+    }
     &__title {
       max-width: 100%;
+      margin-bottom: 8px;
     }
     &__slide {
       max-width: 315px;
@@ -277,6 +295,56 @@
       font-size: 10px;
       font-weight: 500;
       max-width: 50%;
+    }
+  }
+
+  .advantages {
+    $self: &;
+    &__title {
+      &--desktop {
+        display: none;
+      }
+      &--mobile {
+        display: block;
+      }
+    }
+    &__slider > #{$self}__slide {
+      display: none;
+    }
+    &__slide {
+      padding: 32px 0;
+      flex-shrink: 0;
+      max-width: 265px;
+      height: auto;
+      &-inner {
+        @include primary-quotation(32px);
+        padding: 0 25px 0 20px;
+      }
+    }
+    &__slider {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: unset;
+      &-wrapper {
+        display: block;
+        .slick-list {
+          overflow: unset !important;
+          .slick-track {
+            display: flex !important;
+            gap: 15px;
+          }
+        }
+      }
+      &-controls {
+        &--mobile {
+          display: inline-flex;
+          justify-self: flex-end;
+        }
+      }
+    }
+    &__text {
+      font-size: 14px;
+      font-weight: 100;
     }
   }
 }

@@ -753,8 +753,22 @@ img {
     left: 0;
     transform: translateY(-50%);
   }
+  .solution__slider-controls--mobile {
+    display: inline-flex;
+  }
+  .solution__slider-wrapper {
+    display: block;
+  }
+  .solution__slider-wrapper .slick-list {
+    overflow: unset !important;
+  }
+  .solution__slider-wrapper .slick-list .slick-track {
+    display: flex !important;
+    gap: 15px;
+  }
   .solution__title {
     max-width: 100%;
+    margin-bottom: 8px;
   }
   .solution__slide {
     max-width: 315px;
@@ -807,6 +821,56 @@ img {
     font-size: 10px;
     font-weight: 500;
     max-width: 50%;
+  }
+  .advantages__title--desktop {
+    display: none;
+  }
+  .advantages__title--mobile {
+    display: block;
+  }
+  .advantages__slider > .advantages__slide {
+    display: none;
+  }
+  .advantages__slide {
+    padding: 32px 0;
+    flex-shrink: 0;
+    max-width: 265px;
+    height: auto;
+  }
+  .advantages__slide-inner {
+    padding: 0 25px 0 20px;
+  }
+  .advantages__slide-inner::before {
+    content: "";
+    position: absolute;
+    top: 32px;
+    left: 0;
+    width: 3px;
+    height: 32px;
+    background-color: var(--primary);
+  }
+  .advantages__slider {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: unset;
+  }
+  .advantages__slider-wrapper {
+    display: block;
+  }
+  .advantages__slider-wrapper .slick-list {
+    overflow: unset !important;
+  }
+  .advantages__slider-wrapper .slick-list .slick-track {
+    display: flex !important;
+    gap: 15px;
+  }
+  .advantages__slider-controls--mobile {
+    display: inline-flex;
+    justify-self: flex-end;
+  }
+  .advantages__text {
+    font-size: 14px;
+    font-weight: 100;
   }
 }
 .line-splitter {
@@ -8668,6 +8732,60 @@ img {
 }
 .solution__slider {
   display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.solution__slider-controls {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  align-self: flex-end;
+}
+.solution__slider-controls--mobile {
+  display: none;
+}
+.solution__slider-controls::after {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--primary);
+  width: 3px;
+  height: 3px;
+  border-radius: 100px;
+}
+.solution__slider-button {
+  padding: unset;
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  transition: filter 0.3s ease-in-out;
+}
+.solution__slider-button.slick-disabled {
+  filter: grayscale(100%);
+  cursor: not-allowed;
+}
+.solution__slider-button .solution__slider-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s ease-in-out;
+}
+.solution__slider-button .solution__slider-icon svg {
+  width: 100%;
+  height: 100%;
+  fill: var(--primary);
+  transition: color 0.3s ease-in-out;
+}
+.solution__slider-button--prev .solution__slider-icon {
+  transform: rotate(-180deg);
+}
+.solution__slider-wrapper {
+  display: flex;
   align-items: center;
   gap: 18px;
 }
@@ -8827,6 +8945,58 @@ img {
   flex-wrap: wrap;
   row-gap: 20px;
   justify-content: space-between;
+}
+.advantages__slider-wrapper {
+  display: none;
+}
+.advantages__slider-controls {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  align-self: flex-end;
+}
+.advantages__slider-controls--mobile {
+  display: none;
+}
+.advantages__slider-controls::after {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--primary);
+  width: 3px;
+  height: 3px;
+  border-radius: 100px;
+}
+.advantages__slider-button {
+  padding: unset;
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  transition: filter 0.3s ease-in-out;
+}
+.advantages__slider-button.slick-disabled {
+  filter: grayscale(100%);
+  cursor: not-allowed;
+}
+.advantages__slider-button .advantages__slider-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s ease-in-out;
+}
+.advantages__slider-button .advantages__slider-icon svg {
+  width: 100%;
+  height: 100%;
+  fill: var(--primary);
+  transition: color 0.3s ease-in-out;
+}
+.advantages__slider-button--prev .advantages__slider-icon {
+  transform: rotate(-180deg);
 }
 .advantages__slide {
   position: relative;
@@ -9173,8 +9343,22 @@ img {
     left: 0;
     transform: translateY(-50%);
   }
+  .solution__slider-controls--mobile {
+    display: inline-flex;
+  }
+  .solution__slider-wrapper {
+    display: block;
+  }
+  .solution__slider-wrapper .slick-list {
+    overflow: unset !important;
+  }
+  .solution__slider-wrapper .slick-list .slick-track {
+    display: flex !important;
+    gap: 15px;
+  }
   .solution__title {
     max-width: 100%;
+    margin-bottom: 8px;
   }
   .solution__slide {
     max-width: 315px;
@@ -9227,5 +9411,55 @@ img {
     font-size: 10px;
     font-weight: 500;
     max-width: 50%;
+  }
+  .advantages__title--desktop {
+    display: none;
+  }
+  .advantages__title--mobile {
+    display: block;
+  }
+  .advantages__slider > .advantages__slide {
+    display: none;
+  }
+  .advantages__slide {
+    padding: 32px 0;
+    flex-shrink: 0;
+    max-width: 265px;
+    height: auto;
+  }
+  .advantages__slide-inner {
+    padding: 0 25px 0 20px;
+  }
+  .advantages__slide-inner::before {
+    content: "";
+    position: absolute;
+    top: 32px;
+    left: 0;
+    width: 3px;
+    height: 32px;
+    background-color: var(--primary);
+  }
+  .advantages__slider {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: unset;
+  }
+  .advantages__slider-wrapper {
+    display: block;
+  }
+  .advantages__slider-wrapper .slick-list {
+    overflow: unset !important;
+  }
+  .advantages__slider-wrapper .slick-list .slick-track {
+    display: flex !important;
+    gap: 15px;
+  }
+  .advantages__slider-controls--mobile {
+    display: inline-flex;
+    justify-self: flex-end;
+  }
+  .advantages__text {
+    font-size: 14px;
+    font-weight: 100;
   }
 }/*# sourceMappingURL=main.css.map */

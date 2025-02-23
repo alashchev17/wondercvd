@@ -10,6 +10,7 @@
     <meta name="apple-mobile-web-app-title" content="WonderCVD" />
     <link rel="manifest" href="./site.webmanifest" />
     <link rel="stylesheet" href="./css/main.css" />
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-eval' 'unsafe-inline';" />
     <title>WonderCVD</title>
   </head>
   <body>
@@ -225,24 +226,42 @@
         </div>
         <h3 class="h2 solution__title">Готовое решение по выращиванию алмазов «под ключ»</h3>
         <div class="solution__slider">
-          <div class="solution__slide">
-            <img src="./images/solution/solution-1.png" alt="Photo: Solution 1" class="solution__image" />
-            <h6 class="subhead solution__slide-title">
-              Созданный CVD Реактор <span class="line-splitter"></span>
-              WT—1000М
-            </h6>
+          <div class="solution__slider-controls solution__slider-controls--mobile">
+            <button class="solution__slider-button solution__slider-button--prev">
+              <i class="solution__slider-icon">
+                <svg viewBox="0 0 15 15">
+                  <use xlink:href="./images/sprite.svg#slider-arrow"></use>
+                </svg>
+              </i>
+            </button>
+            <button class="solution__slider-button solution__slider-button--next">
+              <i class="solution__slider-icon">
+                <svg viewBox="0 0 15 15">
+                  <use xlink:href="./images/sprite.svg#slider-arrow"></use>
+                </svg>
+              </i>
+            </button>
           </div>
-          <div class="solution__slide">
-            <img src="./images/solution/solution-2.png" alt="Photo: Solution 2" class="solution__image" />
-            <h6 class="subhead solution__slide-title">Собственная технология выращивания алмазов</h6>
-          </div>
-          <div class="solution__slide">
-            <img src="./images/solution/solution-3.png" alt="Photo: Solution 3" class="solution__image" />
-            <h6 class="subhead solution__slide-title">Квалифицированная команда инженеров и разработчиков</h6>
-          </div>
-          <div class="solution__slide">
-            <img src="./images/solution/solution-4.png" alt="Photo: Solution 4" class="solution__image" />
-            <h6 class="subhead solution__slide-title">Производство СVD алмазов</h6>
+          <div class="solution__slider-wrapper">
+            <div class="solution__slide">
+              <img src="./images/solution/solution-1.png" alt="Photo: Solution 1" class="solution__image" />
+              <h6 class="subhead solution__slide-title">
+                Созданный CVD Реактор <span class="line-splitter"></span>
+                WT—1000М
+              </h6>
+            </div>
+            <div class="solution__slide">
+              <img src="./images/solution/solution-2.png" alt="Photo: Solution 2" class="solution__image" />
+              <h6 class="subhead solution__slide-title">Собственная технология выращивания алмазов</h6>
+            </div>
+            <div class="solution__slide">
+              <img src="./images/solution/solution-3.png" alt="Photo: Solution 3" class="solution__image" />
+              <h6 class="subhead solution__slide-title">Квалифицированная команда инженеров и разработчиков</h6>
+            </div>
+            <div class="solution__slide">
+              <img src="./images/solution/solution-4.png" alt="Photo: Solution 4" class="solution__image" />
+              <h6 class="subhead solution__slide-title">Производство СVD алмазов</h6>
+            </div>
           </div>
         </div>
       </div>
@@ -329,6 +348,22 @@
         <h3 class="h3 advantages__title advantages__title--mobile">Выбирая Wonder Techologies, вы получаете</h3>
         <div class="advantages__slider">
           <h3 class="h3 advantages__title advantages__title--desktop">Выбирая Wonder Techologies, вы получаете</h3>
+          <div class="advantages__slider-controls advantages__slider-controls--mobile">
+            <button class="advantages__slider-button advantages__slider-button--prev">
+              <i class="advantages__slider-icon">
+                <svg viewBox="0 0 15 15">
+                  <use xlink:href="./images/sprite.svg#slider-arrow"></use>
+                </svg>
+              </i>
+            </button>
+            <button class="advantages__slider-button advantages__slider-button--next">
+              <i class="advantages__slider-icon">
+                <svg viewBox="0 0 15 15">
+                  <use xlink:href="./images/sprite.svg#slider-arrow"></use>
+                </svg>
+              </i>
+            </button>
+          </div>
           <div class="advantages__slide">
             <div class="advantages__slide-inner">
               <h6 class="subhead advantages__subtitle">Инновационность</h6>
@@ -365,6 +400,46 @@
             <div class="advantages__slide-inner">
               <h6 class="subhead advantages__subtitle">Масштаб<span class="line-splitter"></span>проекта</h6>
               <p class="advantages__text">На сегодняшний день наш парк CVD реакторов - крупнейший в России</p>
+            </div>
+          </div>
+          <div class="advantages__slider-wrapper">
+            <div class="advantages__slide">
+              <div class="advantages__slide-inner">
+                <h6 class="subhead advantages__subtitle">Инновационность</h6>
+                <p class="advantages__text">
+                  Наша уникальная CVD технология производит алмазы с характеристиками, которые полностью соответствуют природным, обладая
+                  идентичной физико-химической структурой, оптическими свойствами и эстетикой
+                </p>
+              </div>
+            </div>
+            <div class="advantages__slide">
+              <div class="advantages__slide-inner">
+                <h6 class="subhead advantages__subtitle">Этика и устойчивость</h6>
+                <p class="advantages__text">
+                  Предлагаем альтернативу, которая не только сохраняет природу, но и создает новую культуру потребления бриллиантов
+                </p>
+              </div>
+            </div>
+            <div class="advantages__slide">
+              <div class="advantages__slide-inner">
+                <h6 class="subhead advantages__subtitle">Международное признание</h6>
+                <p class="advantages__text">
+                  По нашей технологии с  использованием собственно разработанных CVD реакторов в мире производится более миллиона карат
+                  ежегодно 
+                </p>
+              </div>
+            </div>
+            <div class="advantages__slide">
+              <div class="advantages__slide-inner">
+                <h6 class="subhead advantages__subtitle">Качество<span class="line-splitter"></span>алмазов</h6>
+                <p class="advantages__text">Алмазы Wonder technologies сертифицируются по мировым стандартам</p>
+              </div>
+            </div>
+            <div class="advantages__slide">
+              <div class="advantages__slide-inner">
+                <h6 class="subhead advantages__subtitle">Масштаб<span class="line-splitter"></span>проекта</h6>
+                <p class="advantages__text">На сегодняшний день наш парк CVD реакторов - крупнейший в России</p>
+              </div>
             </div>
           </div>
         </div>
@@ -409,22 +484,19 @@
             Становитесь вместе с нами частью<span class="line-splitter"></span>великого прогресса, который меняет мир
           </h4>
           <form action="#" class="contact__form">
-            <!-- <div class="contact__form-field">
-              <input type="text" class="input contact__input" />
-            </div> -->
             <div class="input-field">
-              <input type="text" class="input-field__input" id="generic-input" placeholder="Имя" />
-              <label class="input-field__label" for="generic-input">Имя</label>
+              <input type="text" class="input-field__input" id="name" placeholder="Введите Ваше имя" />
+              <label class="input-field__label" for="name">Имя</label>
               <span class="input-field__error">Обязательное поле</span>
             </div>
             <div class="input-field">
-              <input type="text" class="input-field__input" id="generic-input" placeholder="Имя" />
-              <label class="input-field__label" for="generic-input">Телефон</label>
+              <input type="text" class="input-field__input" id="phone" placeholder="Введите номер телефона" />
+              <label class="input-field__label" for="phone">Телефон</label>
               <span class="input-field__error">Обязательное поле</span>
             </div>
             <div class="input-field">
-              <input type="text" class="input-field__input" id="generic-input" placeholder="Имя" />
-              <label class="input-field__label" for="generic-input">Email</label>
+              <input type="text" class="input-field__input" id="email" placeholder="Введите email" />
+              <label class="input-field__label" for="email">Email</label>
               <span class="input-field__error">Обязательное поле</span>
             </div>
             <!-- <button type="submit" class="button button--primary">Отправить</button> -->
