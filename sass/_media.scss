@@ -347,4 +347,64 @@
       font-weight: 100;
     }
   }
+
+  .promotion {
+    &__container {
+      flex-direction: column-reverse;
+      gap: var(--offset-a4);
+    }
+    &__hexagons {
+      z-index: $ellipse-index;
+    }
+    &__info {
+      max-width: 100%;
+      &-inner {
+        margin-left: 22px;
+      }
+    }
+    &__text {
+      font-size: var(--text-body-size);
+    }
+    &__image {
+      max-width: 70%;
+    }
+  }
+
+  .contact {
+    &__container {
+      flex-direction: column;
+    }
+    &__title {
+      max-width: 100%;
+      font-size: var(--h3-size);
+      line-height: 121%;
+      margin-bottom: var(--offset-a4);
+    }
+    &__action {
+      max-width: calc(100% - 22px);
+      margin-left: 22px;
+    }
+    &__form {
+      margin-top: var(--offset-a4);
+      &-title {
+        max-width: 100%;
+        font-size: 18px;
+      }
+    }
+    &__button {
+      align-self: flex-end;
+      max-width: calc(66% + 16px);
+    }
+  }
+
+  .footer {
+    margin-bottom: 25px;
+    &__block {
+      margin-top: 12px;
+      max-width: 66%;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
+    }
+  }
 }

@@ -872,6 +872,59 @@ img {
     font-size: 14px;
     font-weight: 100;
   }
+  .promotion__container {
+    flex-direction: column-reverse;
+    gap: var(--offset-a4);
+  }
+  .promotion__hexagons {
+    z-index: -1;
+  }
+  .promotion__info {
+    max-width: 100%;
+  }
+  .promotion__info-inner {
+    margin-left: 22px;
+  }
+  .promotion__text {
+    font-size: var(--text-body-size);
+  }
+  .promotion__image {
+    max-width: 70%;
+  }
+  .contact__container {
+    flex-direction: column;
+  }
+  .contact__title {
+    max-width: 100%;
+    font-size: var(--h3-size);
+    line-height: 121%;
+    margin-bottom: var(--offset-a4);
+  }
+  .contact__action {
+    max-width: calc(100% - 22px);
+    margin-left: 22px;
+  }
+  .contact__form {
+    margin-top: var(--offset-a4);
+  }
+  .contact__form-title {
+    max-width: 100%;
+    font-size: 18px;
+  }
+  .contact__button {
+    align-self: flex-end;
+    max-width: calc(66% + 16px);
+  }
+  .footer {
+    margin-bottom: 25px;
+  }
+  .footer__block {
+    margin-top: 12px;
+    max-width: 66%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
 }
 .line-splitter {
   display: block;
@@ -8862,7 +8915,7 @@ img {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 100;
+  z-index: 1;
 }
 .details__info-inner {
   display: flex;
@@ -9461,5 +9514,58 @@ img {
   .advantages__text {
     font-size: 14px;
     font-weight: 100;
+  }
+  .promotion__container {
+    flex-direction: column-reverse;
+    gap: var(--offset-a4);
+  }
+  .promotion__hexagons {
+    z-index: -1;
+  }
+  .promotion__info {
+    max-width: 100%;
+  }
+  .promotion__info-inner {
+    margin-left: 22px;
+  }
+  .promotion__text {
+    font-size: var(--text-body-size);
+  }
+  .promotion__image {
+    max-width: 70%;
+  }
+  .contact__container {
+    flex-direction: column;
+  }
+  .contact__title {
+    max-width: 100%;
+    font-size: var(--h3-size);
+    line-height: 121%;
+    margin-bottom: var(--offset-a4);
+  }
+  .contact__action {
+    max-width: calc(100% - 22px);
+    margin-left: 22px;
+  }
+  .contact__form {
+    margin-top: var(--offset-a4);
+  }
+  .contact__form-title {
+    max-width: 100%;
+    font-size: 18px;
+  }
+  .contact__button {
+    align-self: flex-end;
+    max-width: calc(66% + 16px);
+  }
+  .footer {
+    margin-bottom: 25px;
+  }
+  .footer__block {
+    margin-top: 12px;
+    max-width: 66%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
   }
 }/*# sourceMappingURL=main.css.map */
