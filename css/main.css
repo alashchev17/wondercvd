@@ -339,6 +339,17 @@ template {
   --text-info-size: 12px;
 }
 
+/* Scrollbar customization */
+::-webkit-scrollbar {
+  width: 3px;
+  background-color: var(--black);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--primary);
+  border-radius: 2px;
+}
+
 body {
   font-family: "Geologica", sans-serif;
   font-optical-sizing: auto;
@@ -693,6 +704,8 @@ img {
   .slogan__hexagons {
     max-width: 258px;
     top: 25px;
+    right: 9.25px;
+    z-index: -1;
   }
   .slogan__ellipse {
     top: unset;
@@ -702,10 +715,11 @@ img {
     bottom: 0;
   }
   .slogan__title-element:nth-child(3) {
-    margin-left: 25%;
+    margin-left: 33%;
   }
   .slogan__author {
     margin-left: 33%;
+    font-size: 14px;
     margin-right: unset;
     width: 67%;
   }
@@ -723,18 +737,19 @@ img {
   }
   .history__info-inner {
     padding-bottom: 30px;
+    margin-left: 18px;
   }
   .team__info {
     max-width: 100%;
   }
   .team__info-hexagons {
-    right: -15px;
+    right: 0;
     top: unset;
     bottom: -190px;
     width: 245px;
   }
   .team__info-inner {
-    margin-left: 20px;
+    margin-left: 18px;
   }
   .player-preview__image {
     -webkit-clip-path: polygon(4px 0, 100% 0, 100% calc(100% - 4px), calc(100% - 4px) 100%, 0 100%, 0 4px);
@@ -877,6 +892,8 @@ img {
     gap: var(--offset-a4);
   }
   .promotion__hexagons {
+    width: calc(100% - 18.5px);
+    right: 9.25px;
     z-index: -1;
   }
   .promotion__info {
@@ -924,6 +941,9 @@ img {
     flex-direction: column;
     align-items: flex-start;
     gap: 6px;
+  }
+  .footer__link, .footer__copyright {
+    width: unset;
   }
 }
 .line-splitter {
@@ -8648,7 +8668,7 @@ img {
 .slogan__hexagons {
   position: absolute;
   top: 45px;
-  right: 0;
+  right: -1px;
   z-index: 10;
 }
 .slogan__ellipse {
@@ -8673,6 +8693,7 @@ img {
 .slogan__author {
   margin-right: 100px;
   text-transform: none;
+  font-size: 20px;
   font-weight: 100;
 }
 
@@ -9212,6 +9233,7 @@ img {
 }
 .footer__link, .footer__copyright {
   opacity: 0.2;
+  width: 50%;
 }
 .footer__link {
   transition: opacity 0.3s ease-in-out;
@@ -9336,6 +9358,8 @@ img {
   .slogan__hexagons {
     max-width: 258px;
     top: 25px;
+    right: 9.25px;
+    z-index: -1;
   }
   .slogan__ellipse {
     top: unset;
@@ -9345,10 +9369,11 @@ img {
     bottom: 0;
   }
   .slogan__title-element:nth-child(3) {
-    margin-left: 25%;
+    margin-left: 33%;
   }
   .slogan__author {
     margin-left: 33%;
+    font-size: 14px;
     margin-right: unset;
     width: 67%;
   }
@@ -9366,18 +9391,19 @@ img {
   }
   .history__info-inner {
     padding-bottom: 30px;
+    margin-left: 18px;
   }
   .team__info {
     max-width: 100%;
   }
   .team__info-hexagons {
-    right: -15px;
+    right: 0;
     top: unset;
     bottom: -190px;
     width: 245px;
   }
   .team__info-inner {
-    margin-left: 20px;
+    margin-left: 18px;
   }
   .player-preview__image {
     -webkit-clip-path: polygon(4px 0, 100% 0, 100% calc(100% - 4px), calc(100% - 4px) 100%, 0 100%, 0 4px);
@@ -9520,6 +9546,8 @@ img {
     gap: var(--offset-a4);
   }
   .promotion__hexagons {
+    width: calc(100% - 18.5px);
+    right: 9.25px;
     z-index: -1;
   }
   .promotion__info {
@@ -9567,5 +9595,8 @@ img {
     flex-direction: column;
     align-items: flex-start;
     gap: 6px;
+  }
+  .footer__link, .footer__copyright {
+    width: unset;
   }
 }/*# sourceMappingURL=main.css.map */

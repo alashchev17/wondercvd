@@ -34,6 +34,17 @@
   --text-info-size: #{$text-info-desktop};
 }
 
+/* Scrollbar customization */
+::-webkit-scrollbar {
+  width: 3px;
+  background-color: var(--black);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--primary);
+  border-radius: 2px;
+}
+
 body {
   font-family: $font-family-base;
   font-optical-sizing: auto;

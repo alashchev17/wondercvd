@@ -139,6 +139,8 @@
     &__hexagons {
       max-width: 258px;
       top: 25px;
+      right: 9.25px;
+      z-index: -1;
     }
     &__ellipse {
       top: unset;
@@ -150,12 +152,13 @@
     &__title {
       &-element {
         &:nth-child(3) {
-          margin-left: 25%;
+          margin-left: 33%;
         }
       }
     }
     &__author {
       margin-left: 33%;
+      font-size: 14px;
       margin-right: unset;
       width: 67%;
     }
@@ -173,6 +176,7 @@
       max-width: 100%;
       &-inner {
         padding-bottom: 30px;
+        margin-left: 18px;
       }
     }
   }
@@ -181,13 +185,13 @@
     &__info {
       max-width: 100%;
       &-hexagons {
-        right: -15px;
+        right: 0;
         top: unset;
         bottom: -190px;
         width: 245px;
       }
       &-inner {
-        margin-left: 20px;
+        margin-left: 18px;
       }
     }
   }
@@ -354,6 +358,8 @@
       gap: var(--offset-a4);
     }
     &__hexagons {
+      width: calc(100% - (9.25px * 2));
+      right: 9.25px;
       z-index: $ellipse-index;
     }
     &__info {
@@ -405,6 +411,10 @@
       flex-direction: column;
       align-items: flex-start;
       gap: 6px;
+    }
+    &__link,
+    &__copyright {
+      width: unset;
     }
   }
 }
