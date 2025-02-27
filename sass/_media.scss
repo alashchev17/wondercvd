@@ -56,6 +56,11 @@
       display: none;
     }
   }
+  .spacer {
+    &--desktop {
+      display: none;
+    }
+  }
   .header {
     &__container {
       position: relative;

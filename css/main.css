@@ -634,6 +634,9 @@ img {
   .ellipse--desktop {
     display: none;
   }
+  .spacer--desktop {
+    display: none;
+  }
   .header__container {
     position: relative;
   }
@@ -960,6 +963,10 @@ img {
 }
 .line-splitter--mobile {
   display: none;
+}
+
+.spacer {
+  min-height: 100dvh;
 }
 
 .lines {
@@ -9309,6 +9316,9 @@ img {
     display: block;
   }
   .ellipse--desktop {
+    display: none;
+  }
+  .spacer--desktop {
     display: none;
   }
   .header__container {

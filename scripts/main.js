@@ -506,7 +506,7 @@ jQuery(function () {
           x: 0,
           ease: 'none',
         },
-        '<25%'
+        '<50%'
       )
 
     // Advantages overlay
@@ -524,6 +524,7 @@ jQuery(function () {
   /* Promotion Animation */
 
   function animatePromotion() {
+    const isMobileMode = $(window).width() < 768
     const promotionTl = gsap.timeline({
       defaults: {
         duration: 1.7,
@@ -539,12 +540,14 @@ jQuery(function () {
 
     promotionTl
       .to('.promotion__image', {
-        y: -175,
+        y: isMobileMode ? -100 : -175,
+        opacity: isMobileMode ? 0 : 1,
       })
       .to(
         '.promotion__info',
         {
-          y: -55,
+          y: isMobileMode ? -15 : -55,
+          opacity: isMobileMode ? 0 : 1,
         },
         '<'
       )
@@ -553,6 +556,7 @@ jQuery(function () {
   /* Contact Animation */
 
   function animateContact() {
+    const isMobileMode = $(window).width() < 768
     const contactTl = gsap.timeline({
       defaults: {
         duration: 1.7,
@@ -568,13 +572,13 @@ jQuery(function () {
 
     contactTl
       .from('.contact__title', {
-        y: 155,
+        y: isMobileMode ? 55 : 155,
         opacity: 0,
       })
       .from(
         '.contact__action',
         {
-          y: 75,
+          y: isMobileMode ? 35 : 75,
           opacity: 0,
         },
         '<'
