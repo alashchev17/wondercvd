@@ -126,6 +126,10 @@
   }
 
   .hero {
+    &__title {
+      max-width: unset;
+      overflow-y: unset;
+    }
     &__slogan {
       margin-top: 38px;
       max-width: 255px;
@@ -205,6 +209,7 @@
   }
 
   .solution {
+    padding: unset;
     &__ellipse {
       width: 231px;
       height: 231px;

@@ -6,6 +6,7 @@
     position: absolute;
     top: 0;
     right: -175px;
+    // z-index: 10;
   }
   &__container {
   }
@@ -22,6 +23,7 @@
       top: 7px;
       width: 435px;
       right: calc(-435px - 57px);
+      // z-index: 10;
     }
     margin-bottom: var(--offset-a3);
     &-inner {
