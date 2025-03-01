@@ -175,6 +175,7 @@
   .history {
     &__subsection {
       flex-direction: column;
+      justify-content: unset;
       gap: var(--offset-a4);
     }
     &__image {

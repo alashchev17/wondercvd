@@ -45,10 +45,18 @@ const PerformanceUtils = {
 
 function optimizeScrollTrigger() {
   ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
+  // ScrollTrigger.normalizeScroll({
+  //   allowNestedScroll: true,
+  //   lockAxis: false,
+  //   momentum: (self) => Math.min(3, self.velocityY / 10000000),
+  //   type: 'touch,wheel,pointer',
+  // })
 
   const commonScrollConfig = {
     markers: false,
     toggleActions: 'play none none reverse',
+    ignoreMobileResize: true,
+    anticipatePin: 1,
   }
 
   window.createScrollAnimation = function (options) {
@@ -100,26 +108,15 @@ $(window).on('load', function () {
   ScrollTrigger.refresh()
 })
 
-$(window).on(
-  'resize',
-  PerformanceUtils.debounce(function () {
-    ScrollTrigger.refresh(true)
-  }, 200)
-)
+// $(window).on(
+//   'scroll',
+//   PerformanceUtils.debounce(function () {
+//     ScrollTrigger.refresh(true)
+//   }, 20)
+// )
 
 $(document).ready(function () {
-  // Register ScrollTrigger plugin
-  // const lenis = new Lenis({
-  //   autoRaf: true,
-  // })
-
-  // lenis.on('scroll', ScrollTrigger.update)
-
-  // gsap.ticker.add((time) => {
-  //   lenis.raf(time * 1000)
-  // })
-
-  // gsap.ticker.lagSmoothing(0)
+  gsap.ticker.lagSmoothing(0)
 
   // Menu
   const body = $('body')
@@ -133,10 +130,9 @@ $(document).ready(function () {
 
   burgerButton.on('click', (event) => {
     event.preventDefault()
-    body.toggleClass('overflow-hidden')
+    body.toggleClass('overflow-hidden', !isMenuOpened)
 
     if (isMenuOpened) {
-      lenis.start()
       headerEllipse.toggleClass('active')
       setTimeout(() => {
         lines.toggleClass('active')
@@ -148,7 +144,6 @@ $(document).ready(function () {
         }, 300)
       }, 300)
     } else {
-      lenis.stop()
       burgerButton.toggleClass('active')
       lines.toggleClass('active')
       header.toggleClass('active')
@@ -182,7 +177,6 @@ $(document).ready(function () {
         )
       }
       if (menu.hasClass('active')) {
-        lenis.start()
         headerEllipse.toggleClass('active')
         setTimeout(() => {
           lines.toggleClass('active')
@@ -191,6 +185,7 @@ $(document).ready(function () {
           setTimeout(() => {
             burgerButton.toggleClass('active')
             header.toggleClass('active')
+            body.removeClass('overflow-hidden')
           }, 300)
         }, 300)
         setTimeout(smoothAnimate, 600)
@@ -318,6 +313,7 @@ $(document).ready(function () {
 
   function animateSlogan() {
     const sloganInfoHeight = $('.slogan__info').height()
+    const isMobileMode = $(window).width() < 768
     const windowHeight = $(window).height()
     const sloganTl = gsap.timeline({
       defaults: {
@@ -355,7 +351,7 @@ $(document).ready(function () {
         '.slogan__hexagons',
         {
           y: $('.slogan__hexagons').height(),
-          opacity: 0,
+          opacity: isMobileMode ? 1 : 0,
         },
         '<'
       )
@@ -376,7 +372,7 @@ $(document).ready(function () {
       .from(
         '.slogan__ellipse',
         {
-          opacity: 0,
+          opacity: isMobileMode ? 1 : 0,
         },
         '<'
       )
@@ -386,6 +382,8 @@ $(document).ready(function () {
 
   function animateHistory() {
     const isMobileMode = $(window).width() < 768
+    const windowHeight = $(window).height()
+
     gsap.set('.history__container', {
       position: 'relative',
       height: '100vh',
@@ -406,7 +404,7 @@ $(document).ready(function () {
       scrollTrigger: {
         trigger: '.history',
         start: 'top top',
-        end: '+=3000',
+        end: () => `+=${windowHeight * 3}`,
         pin: true,
         pinSpacing: true,
         scrub: true,
@@ -471,13 +469,13 @@ $(document).ready(function () {
   function animateTeam() {
     const teamTl = gsap.timeline({
       defaults: {
-        duration: 1.7,
+        duration: 3,
         ease: 'linear',
       },
       scrollTrigger: {
         trigger: '.team',
         start: 'top bottom',
-        end: 'bottom 85%',
+        end: 'bottom 25%',
         scrub: true,
       },
     })
@@ -541,7 +539,6 @@ $(document).ready(function () {
         scrub: true,
       },
     })
-
     solutionTl.to(sliderWrapper, {
       x: maxScroll,
       ease: 'none',
@@ -573,9 +570,11 @@ $(document).ready(function () {
       scrollTrigger: {
         trigger: '.details',
         start: 'top 25%',
-        end: `+=${currentWindowHeight}`, // Increased scroll distance
+        end: `+=${currentWindowHeight + 200}`, // Increased scroll distance
+        // end: `max`, // Increased scroll distance
         pin: true,
         pinSpacing: false,
+        anticipatePin: 1,
         scrub: true,
       },
     })
@@ -623,6 +622,7 @@ $(document).ready(function () {
       start: 'top bottom',
       endTrigger: '.advantages',
       end: 'bottom top',
+      anticipatePin: 1,
       scrub: true,
     })
 
@@ -636,7 +636,7 @@ $(document).ready(function () {
     const promotionTl = gsap.timeline({
       defaults: {
         duration: 1.7,
-        ease: 'power3.inOut',
+        ease: 'linear',
       },
       scrollTrigger: {
         trigger: '.promotion',
@@ -668,7 +668,7 @@ $(document).ready(function () {
     const contactTl = gsap.timeline({
       defaults: {
         duration: 1.7,
-        ease: 'power3.inOut',
+        ease: 'linear',
       },
       scrollTrigger: {
         trigger: '.contact',

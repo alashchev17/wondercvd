@@ -55,10 +55,10 @@
       height: $button-size;
       cursor: pointer;
       transition: filter 0.3s ease-in-out;
-      &.slick-disabled {
-        filter: grayscale(100%);
-        cursor: not-allowed;
-      }
+      // &.slick-disabled {
+      //   opacity: 0.5;
+      //   cursor: not-allowed;
+      // }
 
       #{$self}-icon {
         display: inline-flex;
