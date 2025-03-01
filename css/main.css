@@ -8496,6 +8496,48 @@ img {
   color: transparent;
 }
 
+.preloader {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--black);
+  z-index: 10000;
+  transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+}
+.preloader.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+.preloader__loading-logo {
+  width: 80px;
+  height: 80px;
+  background-image: url("../images/icons/wonder-logo-graphic.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  animation: 2s preloaderLogo 0.5s infinite;
+  z-index: 100;
+}
+
+@keyframes preloaderLogo {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(0.95);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
 .header {
   position: fixed;
   top: 0;

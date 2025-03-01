@@ -92,12 +92,18 @@ const PerformanceMonitor = {
   },
 }
 
+function hidePreloader(preloader) {
+  preloader.addClass('hidden')
+  setTimeout(() => {
+    $('body').removeClass('no-transition')
+    preloader.remove()
+  }, 500)
+}
+
 $(function () {
   ts = new Date().getTime()
   PerformanceMonitor.start('document_ready')
   optimizeScrollTrigger()
-
-  $('body').addClass('ready').removeClass('no-transition')
 
   te = new Date().getTime()
   console.log(`On-Ready Load Time: ${te - ts}ms`)
@@ -776,17 +782,22 @@ $(document).ready(function () {
   }
 
   $(window).on('load', () => {
+    const preloader = $('.preloader')
+    setTimeout(() => {
+      hidePreloader(preloader)
+
+      animateHero()
+      animateSlogan()
+      animateHistory()
+      animateTeam()
+      animateSolution()
+      animateDetailsAndAdvantages()
+      animatePromotion()
+      animateContact()
+    }, 1000)
     // Starting all instances of the landing page
     destroyAndReinitializeSolutionSlider()
     destroyAndReinitializeAdvantagesSlider()
     // Animations
-    animateHero()
-    animateSlogan()
-    animateHistory()
-    animateTeam()
-    animateSolution()
-    animateDetailsAndAdvantages()
-    animatePromotion()
-    animateContact()
   })
 })
