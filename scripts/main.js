@@ -512,7 +512,9 @@ $(document).ready(function () {
   /* Solution Animation */
 
   function animateSolution() {
-    if ($(window).width() < 768) return
+    const isMobileMode = $(window).width() < 768
+
+    if (isMobileMode) return
 
     const sliderWrapper = $('.solution__slider-wrapper')
     const ellipseContainer = $('.solution__ellipse-container')
@@ -547,7 +549,7 @@ $(document).ready(function () {
         end: '+=750',
         pin: true,
         pinSpacing: true,
-        scrub: isMobileMode ? 0.1 : true,
+        scrub: true,
       },
     })
     solutionTl.to(sliderWrapper, {
@@ -586,7 +588,7 @@ $(document).ready(function () {
         pin: true,
         pinSpacing: false,
         anticipatePin: 1,
-        scrub: isMobileMode ? 0.1 : true,
+        scrub: true,
       },
     })
 
@@ -634,7 +636,7 @@ $(document).ready(function () {
       endTrigger: '.advantages',
       end: 'bottom top',
       anticipatePin: 1,
-      scrub: isMobileMode ? 0.1 : true,
+      scrub: true,
     })
 
     return detailsTl
