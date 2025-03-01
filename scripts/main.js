@@ -1,20 +1,125 @@
-jQuery(function () {
+gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(CustomEase)
+gsap.registerPlugin(SplitText)
+
+// Performance utilities for smoother animations and DOM operations
+const PerformanceUtils = {
+  // Throttle: Limit function calls to once per X milliseconds
+  throttle: function (fn, delay) {
+    let lastCall = 0
+    return function (...args) {
+      const now = Date.now()
+      if (now - lastCall >= delay) {
+        lastCall = now
+        fn.apply(this, args)
+      }
+    }
+  },
+
+  // Debounce: Wait until X ms have passed since last call
+  debounce: function (fn, delay) {
+    let timer
+    return function (...args) {
+      clearTimeout(timer)
+      timer = setTimeout(() => fn.apply(this, args), delay)
+    }
+  },
+
+  // RAF wrapper: Schedule function to run during next animation frame
+  raf: function (fn) {
+    return function (...args) {
+      requestAnimationFrame(() => fn.apply(this, args))
+    }
+  },
+
+  // Batch DOM reads and writes to prevent layout thrashing
+  batchDOM: function (readFn, writeFn) {
+    return function () {
+      // Read phase (measure)
+      const result = readFn()
+      // Write phase (mutate) in next animation frame
+      requestAnimationFrame(() => writeFn(result))
+    }
+  },
+}
+
+function optimizeScrollTrigger() {
+  ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
+
+  const commonScrollConfig = {
+    markers: false,
+    toggleActions: 'play none none reverse',
+  }
+
+  window.createScrollAnimation = function (options) {
+    const { trigger, target, properties, start = 'top bottom', end = 'bottom top', scrub = true } = options
+
+    return gsap
+      .timeline({
+        scrollTrigger: {
+          ...commonScrollConfig,
+          trigger,
+          start,
+          end,
+          scrub,
+        },
+      })
+      .to(target, properties)
+  }
+}
+
+const PerformanceMonitor = {
+  marks: {},
+  start: function (label) {
+    this.marks[label] = performance.now()
+  },
+  end: function (label) {
+    if (this.marks[label]) {
+      const duration = performance.now() - this.marks[label]
+      console.log(`${label}: ${duration.toFixed(2)}ms`)
+      delete this.marks[label]
+      return duration
+    }
+    return 0
+  },
+}
+
+$(function () {
+  ts = new Date().getTime()
+  PerformanceMonitor.start('document_ready')
+  optimizeScrollTrigger()
+
+  $('body').addClass('ready').removeClass('no-transition')
+
+  te = new Date().getTime()
+  console.log(`On-Ready Load Time: ${te - ts}ms`)
+  PerformanceMonitor.end('document_ready')
+})
+
+$(window).on('load', function () {
+  ScrollTrigger.refresh()
+})
+
+$(window).on(
+  'resize',
+  PerformanceUtils.debounce(function () {
+    ScrollTrigger.refresh(true)
+  }, 200)
+)
+
+$(document).ready(function () {
   // Register ScrollTrigger plugin
-  gsap.registerPlugin(ScrollTrigger)
-  gsap.registerPlugin(CustomEase)
-  gsap.registerPlugin(SplitText)
+  // const lenis = new Lenis({
+  //   autoRaf: true,
+  // })
 
-  const lenis = new Lenis({
-    autoRaf: true,
-  })
+  // lenis.on('scroll', ScrollTrigger.update)
 
-  lenis.on('scroll', ScrollTrigger.update)
+  // gsap.ticker.add((time) => {
+  //   lenis.raf(time * 1000)
+  // })
 
-  gsap.ticker.add((time) => {
-    lenis.raf(time * 1000)
-  })
-
-  gsap.ticker.lagSmoothing(0)
+  // gsap.ticker.lagSmoothing(0)
 
   // Menu
   const body = $('body')
@@ -212,16 +317,18 @@ jQuery(function () {
   /* Slogan Animation */
 
   function animateSlogan() {
+    const sloganInfoHeight = $('.slogan__info').height()
+    const windowHeight = $(window).height()
     const sloganTl = gsap.timeline({
       defaults: {
         duration: 2,
-        ease: 'power3.inOut',
+        ease: 'linear',
       },
       scrollTrigger: {
         trigger: '.slogan',
-        start: 'top bottom',
-        end: 'bottom center',
-        scrub: 1.2,
+        start: 'top 80%',
+        end: `bottom ${windowHeight / 2 + sloganInfoHeight}px`,
+        scrub: 1.1,
       },
     })
     const sloganTitleElements = $('.slogan__title-element')
@@ -294,7 +401,7 @@ jQuery(function () {
     const historyTl = gsap.timeline({
       defaults: {
         duration: 1.7,
-        ease: 'power3.inOut',
+        ease: 'linear',
       },
       scrollTrigger: {
         trigger: '.history',
@@ -302,7 +409,7 @@ jQuery(function () {
         end: '+=3000',
         pin: true,
         pinSpacing: true,
-        scrub: 1.2,
+        scrub: true,
       },
     })
 
@@ -313,7 +420,7 @@ jQuery(function () {
         trigger: '.history',
         start: 'top center',
         end: '+=450',
-        scrub: 1.2,
+        scrub: true,
       },
     })
 
@@ -328,7 +435,7 @@ jQuery(function () {
           y: 40,
           opacity: 0,
         },
-        '<15%'
+        '<55%'
       )
 
     subsections.each(function (index) {
@@ -351,7 +458,7 @@ jQuery(function () {
               y: 40,
               opacity: 0,
             },
-            '<25%'
+            '<35%'
           )
       }
     })
@@ -365,13 +472,13 @@ jQuery(function () {
     const teamTl = gsap.timeline({
       defaults: {
         duration: 1.7,
-        ease: 'power3.inOut',
+        ease: 'linear',
       },
       scrollTrigger: {
         trigger: '.team',
         start: 'top bottom',
         end: 'bottom 85%',
-        scrub: 1.2,
+        scrub: true,
       },
     })
 
@@ -410,7 +517,7 @@ jQuery(function () {
         trigger: '.solution',
         start: 'top bottom',
         end: 'top center',
-        scrub: 1.2,
+        scrub: true,
       },
     })
 
@@ -431,7 +538,7 @@ jQuery(function () {
         end: '+=750',
         pin: true,
         pinSpacing: true,
-        scrub: 1.2,
+        scrub: true,
       },
     })
 
@@ -465,11 +572,11 @@ jQuery(function () {
       },
       scrollTrigger: {
         trigger: '.details',
-        start: 'top 10%',
+        start: 'top 25%',
         end: `+=${currentWindowHeight}`, // Increased scroll distance
         pin: true,
         pinSpacing: false,
-        scrub: 1.2,
+        scrub: true,
       },
     })
 
@@ -490,8 +597,9 @@ jQuery(function () {
         detailsInfo,
         {
           width: '75%',
+          opacity: 0,
         },
-        '<'
+        '<15%'
       )
       .from(
         '.details__info-image',
@@ -515,7 +623,7 @@ jQuery(function () {
       start: 'top bottom',
       endTrigger: '.advantages',
       end: 'bottom top',
-      scrub: 1.2,
+      scrub: true,
     })
 
     return detailsTl
@@ -534,7 +642,7 @@ jQuery(function () {
         trigger: '.promotion',
         start: 'top bottom',
         end: 'bottom top',
-        scrub: 1.2,
+        scrub: true,
       },
     })
 
@@ -566,7 +674,7 @@ jQuery(function () {
         trigger: '.contact',
         start: 'top bottom',
         end: 'bottom center',
-        scrub: 1.2,
+        scrub: true,
       },
     })
 

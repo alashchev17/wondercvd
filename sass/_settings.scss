@@ -32,11 +32,12 @@
   --text-body-accent-size: #{$text-body-accent-desktop};
   --additional-text-size: #{$additional-text-desktop};
   --text-info-size: #{$text-info-desktop};
+  --scrollbar-width: 3px;
 }
 
 /* Scrollbar customization */
 ::-webkit-scrollbar {
-  width: 3px;
+  width: var(--scrollbar-width);
   background-color: var(--black);
 }
 
@@ -54,6 +55,15 @@ body {
   font-style: normal;
   font-variation-settings: 'slnt' 0, 'CRSV' 0, 'SHRP' 0;
   overflow-x: clip;
+}
+
+.no-transition {
+  max-height: 100vh;
+  overflow: hidden;
+  padding-right: var(--scrollbar-width);
+}
+
+.ready {
 }
 
 .overflow-hidden {
