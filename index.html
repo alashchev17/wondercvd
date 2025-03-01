@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" class="no-transition">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,15 +7,16 @@
     <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png" />
     <meta name="apple-mobile-web-app-title" content="WonderCVD" />
     <link rel="manifest" href="./site.webmanifest" />
-    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/slick.min.css" />
+    <!-- <link rel="stylesheet" href="./css/slick-theme.css" /> -->
+
+    <link rel="stylesheet" href="./css/main.min.css" />
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-eval' 'unsafe-inline';" />
     <title>WonderCVD</title>
   </head>
-  <body class="no-transition">
+  <body>
     <div class="preloader">
-        <div class="preloader__loading-logo">
-        </div>
-      </div>
+      <div class="preloader__loading-logo"></div>
     </div>
     <div class="container">
       <div class="lines">
@@ -74,6 +75,9 @@
       </div>
     </header>
     <section id="hero" class="hero">
+      <video class="hero__video" id="hero_video" muted autoplay loop width="auto" height="auto" playsinline>
+        <source data-src="./videos/hero/video_main.mp4" src="./videos/hero/video_main.mp4" type="video/mp4" />
+      </video>
       <div class="container">
         <h1 class="h1 hero__title">Wonder Technologies&nbsp;<sup class="hero__trademark">&#174;</sup></h1>
         <div class="hero__slogan">
@@ -250,7 +254,7 @@
               <img src="./images/solution/solution-1.png" alt="Photo: Solution 1" class="solution__image" />
               <h6 class="subhead solution__slide-title">
                 Созданный CVD Реактор <span class="line-splitter"></span>
-                WT—1000М
+                WT—1000M
               </h6>
             </div>
             <div class="solution__slide">
@@ -273,7 +277,7 @@
       <div class="container details__container">
         <h3 class="h2 details__title">Производим высокочистые <span class="line-splitter line-splitter--mobile"></span> CVD алмазы</h3>
         <div class="details__info">
-          <img src="./images/details/diamond.gif" alt="Photo: CVD Diamond" class="details__info-image" />
+          <!-- <img src="./images/details/diamond.gif" alt="Photo: CVD Diamond" class="details__info-image" /> -->
           <div class="details__info-inner details__info-inner--desktop">
             <div class="details__info-row">
               <div class="details__info-block details__info-block--left">
@@ -536,7 +540,7 @@
     <script src="./scripts/libs/SplitText.gsap.min.js"></script>
     <script src="./scripts/libs/CustomEase.min.js"></script>
     <script src="./scripts/libs/CSSRulePlugin.gsap.min.js"></script>
-    <script src="./scripts/main.js"></script>
+    <script src="./scripts/main.min.js"></script>
 
     <script>
       const link = document.createElement('link')

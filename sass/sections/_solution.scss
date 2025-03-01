@@ -88,7 +88,7 @@
     }
   }
   &__slide {
-    display: flex;
+    display: flex !important;
     flex-direction: column;
     gap: var(--offset-a5);
     &-title {

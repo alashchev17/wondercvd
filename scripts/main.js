@@ -92,27 +92,14 @@ const PerformanceMonitor = {
   },
 }
 
-function hidePreloader(preloader) {
+function hidePreloader() {
+  const preloader = $('.preloader')
   preloader.addClass('hidden')
   setTimeout(() => {
-    $('body').removeClass('no-transition')
+    $('html').removeClass('no-transition')
     preloader.remove()
   }, 500)
 }
-
-$(function () {
-  ts = new Date().getTime()
-  PerformanceMonitor.start('document_ready')
-  optimizeScrollTrigger()
-
-  te = new Date().getTime()
-  console.log(`On-Ready Load Time: ${te - ts}ms`)
-  PerformanceMonitor.end('document_ready')
-})
-
-$(window).on('load', function () {
-  ScrollTrigger.refresh()
-})
 
 // $(window).on(
 //   'scroll',
@@ -120,6 +107,23 @@ $(window).on('load', function () {
 //     ScrollTrigger.refresh(true)
 //   }, 20)
 // )
+
+Object.defineProperty(HTMLMediaElement.prototype, 'playing', {
+  get: function () {
+    return !!(this.currentTime > 0 && !this.paused && !this.ended && this.readyState > 2)
+  },
+})
+
+$('body').on('click touchstart', function () {
+  const videoElement = document.getElementById('hero_video')
+  if (videoElement.playing) {
+    // video is already playing so do nothing
+  } else {
+    // video is not playing
+    // so play video now
+    videoElement.play()
+  }
+})
 
 $(document).ready(function () {
   gsap.ticker.lagSmoothing(0)
@@ -330,7 +334,7 @@ $(document).ready(function () {
         trigger: '.slogan',
         start: 'top 80%',
         end: `bottom ${windowHeight / 2 + sloganInfoHeight}px`,
-        scrub: 1.1,
+        scrub: isMobileMode ? 0.1 : true,
       },
     })
     const sloganTitleElements = $('.slogan__title-element')
@@ -413,7 +417,7 @@ $(document).ready(function () {
         end: () => `+=${windowHeight * 3}`,
         pin: true,
         pinSpacing: true,
-        scrub: true,
+        scrub: isMobileMode ? 0.1 : true,
       },
     })
 
@@ -424,7 +428,7 @@ $(document).ready(function () {
         trigger: '.history',
         start: 'top center',
         end: '+=450',
-        scrub: true,
+        scrub: isMobileMode ? 0.1 : true,
       },
     })
 
@@ -473,6 +477,7 @@ $(document).ready(function () {
   /* Team Animation */
 
   function animateTeam() {
+    const isMobileMode = $(window).width() < 768
     const teamTl = gsap.timeline({
       defaults: {
         duration: 3,
@@ -482,7 +487,7 @@ $(document).ready(function () {
         trigger: '.team',
         start: 'top bottom',
         end: 'bottom 25%',
-        scrub: true,
+        scrub: isMobileMode ? 0.1 : true,
       },
     })
 
@@ -542,7 +547,7 @@ $(document).ready(function () {
         end: '+=750',
         pin: true,
         pinSpacing: true,
-        scrub: true,
+        scrub: isMobileMode ? 0.1 : true,
       },
     })
     solutionTl.to(sliderWrapper, {
@@ -581,7 +586,7 @@ $(document).ready(function () {
         pin: true,
         pinSpacing: false,
         anticipatePin: 1,
-        scrub: true,
+        scrub: isMobileMode ? 0.1 : true,
       },
     })
 
@@ -629,7 +634,7 @@ $(document).ready(function () {
       endTrigger: '.advantages',
       end: 'bottom top',
       anticipatePin: 1,
-      scrub: true,
+      scrub: isMobileMode ? 0.1 : true,
     })
 
     return detailsTl
@@ -648,7 +653,7 @@ $(document).ready(function () {
         trigger: '.promotion',
         start: 'top bottom',
         end: 'bottom top',
-        scrub: true,
+        scrub: isMobileMode ? 0.1 : true,
       },
     })
 
@@ -680,7 +685,7 @@ $(document).ready(function () {
         trigger: '.contact',
         start: 'top bottom',
         end: 'bottom center',
-        scrub: true,
+        scrub: isMobileMode ? 0.1 : true,
       },
     })
 
@@ -707,14 +712,10 @@ $(document).ready(function () {
       prevArrow: $('.solution__slider-controls--mobile .solution__slider-button--prev'),
       nextArrow: $('.solution__slider-controls--mobile .solution__slider-button--next'),
     }
-    if (solutionSlider.hasClass('slick-initialized')) {
-      solutionSlider.slick('destroy')
-    }
-    if ($(window).width() > 768) {
+    if ($(window).width() < 768) {
       if (solutionSlider.hasClass('slick-initialized')) {
         solutionSlider.slick('destroy')
       }
-    } else {
       solutionSlider.slick({
         nextArrow: sliderButtons.nextArrow,
         prevArrow: sliderButtons.prevArrow,
@@ -739,23 +740,19 @@ $(document).ready(function () {
           },
         ],
       })
-      console.log(solutionSlider.slick('getSlick'))
     }
   }
   function destroyAndReinitializeAdvantagesSlider() {
     const advantagesSlider = $('.advantages__slider-wrapper')
-    let sliderButtons = {
+    const sliderButtons = {
       prevArrow: $('.advantages__slider-controls--mobile .advantages__slider-button--prev'),
       nextArrow: $('.advantages__slider-controls--mobile .advantages__slider-button--next'),
     }
-    if (advantagesSlider.hasClass('slick-initialized')) {
-      advantagesSlider.slick('destroy')
-    }
-    if ($(window).width() > 768) {
+
+    if ($(window).width() < 768) {
       if (advantagesSlider.hasClass('slick-initialized')) {
         advantagesSlider.slick('destroy')
       }
-    } else {
       advantagesSlider.slick({
         nextArrow: sliderButtons.nextArrow,
         prevArrow: sliderButtons.prevArrow,
@@ -781,23 +778,41 @@ $(document).ready(function () {
     }
   }
 
-  $(window).on('load', () => {
-    const preloader = $('.preloader')
-    setTimeout(() => {
-      hidePreloader(preloader)
-
-      animateHero()
-      animateSlogan()
-      animateHistory()
-      animateTeam()
-      animateSolution()
-      animateDetailsAndAdvantages()
-      animatePromotion()
-      animateContact()
-    }, 1000)
-    // Starting all instances of the landing page
-    destroyAndReinitializeSolutionSlider()
-    destroyAndReinitializeAdvantagesSlider()
-    // Animations
-  })
+  console.log('Document was loaded up')
+  ScrollTrigger.refresh()
+  // Animations
+  hidePreloader()
+  animateHero()
+  animateSlogan()
+  animateHistory()
+  animateTeam()
+  animateSolution()
+  animateDetailsAndAdvantages()
+  animatePromotion()
+  animateContact()
+  // Starting all instances of the landing page
+  destroyAndReinitializeSolutionSlider()
+  destroyAndReinitializeAdvantagesSlider()
 })
+
+// jQuery.event.special.touchstart = {
+//   setup: function (_, ns, handle) {
+//     this.addEventListener('touchstart', handle, { passive: !ns.includes('noPreventDefault') })
+//   },
+// }
+// jQuery.event.special.touchmove = {
+//   setup: function (_, ns, handle) {
+//     console.log(`[DEBUG]: passive: ${!ns.includes('noPreventDefault')}`)
+//     this.addEventListener('touchmove', handle, { passive: !ns.includes('noPreventDefault') })
+//   },
+// }
+// jQuery.event.special.wheel = {
+//   setup: function (_, ns, handle) {
+//     this.addEventListener('wheel', handle, { passive: true })
+//   },
+// }
+// jQuery.event.special.mousewheel = {
+//   setup: function (_, ns, handle) {
+//     this.addEventListener('mousewheel', handle, { passive: true })
+//   },
+// }
