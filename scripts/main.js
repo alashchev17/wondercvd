@@ -394,12 +394,14 @@ $(document).ready(function () {
     const isMobileMode = $(window).width() < 768
     const windowHeight = $(window).height()
 
+    const historySubsections = $('.history__subsection')
+
     gsap.set('.history__container', {
       position: 'relative',
       height: '100vh',
     })
 
-    gsap.set('.history__subsection', {
+    gsap.set($(historySubsections), {
       position: 'absolute',
       top: 0,
       left: isMobileMode ? 9.25 : 0,
@@ -414,9 +416,10 @@ $(document).ready(function () {
       scrollTrigger: {
         trigger: '.history',
         start: 'top top',
-        end: () => `+=${windowHeight * 3}`,
+        end: () => `+=${windowHeight * historySubsections.length - 150}`, // 150 is a magic number
         pin: true,
         pinSpacing: true,
+        anticipatePin: 1,
         scrub: isMobileMode ? 0.1 : true,
       },
     })
@@ -485,8 +488,8 @@ $(document).ready(function () {
       },
       scrollTrigger: {
         trigger: '.team',
-        start: 'top bottom',
-        end: 'bottom 25%',
+        start: '10% bottom',
+        end: 'bottom bottom',
         scrub: isMobileMode ? 0.1 : true,
       },
     })
@@ -541,7 +544,7 @@ $(document).ready(function () {
     const solutionTl = gsap.timeline({
       defaults: {
         duration: 1.7,
-        ease: 'power3.inOut',
+        ease: 'linear',
       },
       scrollTrigger: {
         trigger: '.solution',
@@ -686,7 +689,7 @@ $(document).ready(function () {
       scrollTrigger: {
         trigger: '.contact',
         start: 'top bottom',
-        end: 'bottom center',
+        end: 'bottom bottom',
         scrub: isMobileMode ? 0.1 : true,
       },
     })
