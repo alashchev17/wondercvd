@@ -574,75 +574,93 @@ $(document).ready(function () {
   /* Details animation */
 
   function animateDetailsAndAdvantages() {
-    if ($(window).width() < 768) return
-
     const currentWindowHeight = $(window).height() * 1.8
 
-    const detailsTl = gsap.timeline({
-      defaults: {
-        duration: 1.7,
-        ease: 'power3.inOut',
-      },
-      scrollTrigger: {
-        trigger: '.details',
-        start: 'top 25%',
-        end: `+=${currentWindowHeight + 200}`, // Increased scroll distance
-        // end: `max`, // Increased scroll distance
-        pin: true,
-        pinSpacing: false,
+    if ($(window).width() > 768) {
+      const detailsTl = gsap.timeline({
+        defaults: {
+          duration: 1.7,
+          ease: 'power3.inOut',
+        },
+        scrollTrigger: {
+          trigger: '.details',
+          start: 'top 25%',
+          end: `+=${currentWindowHeight + 200}`, // Increased scroll distance
+          // end: `max`, // Increased scroll distance
+          pin: true,
+          pinSpacing: false,
+          anticipatePin: 1,
+          scrub: true,
+        },
+      })
+
+      const detailsInfo = $('.details__info')
+      const solutionEllipseContainer = $('.solution__ellipse-container')
+
+      gsap.set(detailsInfo, {
+        margin: '0 auto',
+      })
+
+      // Details animations
+      detailsTl
+        .from('.details__title', {
+          y: 20,
+          opacity: 0,
+        })
+        .from(
+          detailsInfo,
+          {
+            width: '75%',
+            opacity: 0,
+          },
+          '<15%'
+        )
+        .from(
+          '.details__info-image',
+          {
+            y: 90,
+          },
+          '<'
+        )
+        .to(
+          solutionEllipseContainer,
+          {
+            x: 0,
+            ease: 'none',
+          },
+          '<50%'
+        )
+
+      // Advantages overlay
+      ScrollTrigger.create({
+        trigger: '.advantages',
+        start: 'top bottom',
+        endTrigger: '.advantages',
+        end: 'bottom top',
         anticipatePin: 1,
         scrub: true,
-      },
-    })
-
-    const detailsInfo = $('.details__info')
-    const solutionEllipseContainer = $('.solution__ellipse-container')
-
-    gsap.set(detailsInfo, {
-      margin: '0 auto',
-    })
-
-    // Details animations
-    detailsTl
-      .from('.details__title', {
-        y: 20,
-        opacity: 0,
       })
-      .from(
-        detailsInfo,
-        {
-          width: '75%',
-          opacity: 0,
-        },
-        '<15%'
-      )
-      .from(
-        '.details__info-image',
-        {
-          y: 90,
-        },
-        '<'
-      )
-      .to(
-        solutionEllipseContainer,
-        {
-          x: 0,
-          ease: 'none',
-        },
-        '<50%'
-      )
 
-    // Advantages overlay
-    ScrollTrigger.create({
-      trigger: '.advantages',
-      start: 'top bottom',
-      endTrigger: '.advantages',
-      end: 'bottom top',
-      anticipatePin: 1,
-      scrub: true,
-    })
+      return detailsTl
+    } else {
+      const detailsSectionHeight = $('.details').height()
 
-    return detailsTl
+      const detailsTl = gsap.timeline({
+        defaults: {
+          duration: 1.7,
+          ease: 'power3.inOut',
+        },
+        scrollTrigger: {
+          trigger: '.details__info-image',
+          start: 'top 25%',
+          end: `${detailsSectionHeight / 1.8} 23%`,
+          pin: true,
+          pinSpacing: false,
+          scrub: true,
+        },
+      })
+      return detailsTl
+    }
   }
 
   /* Promotion Animation */
