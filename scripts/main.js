@@ -863,38 +863,48 @@ $(document).ready(function () {
   }
 
   function teamPlayer() {
-    const playerButton = $('.player-preview__button')
     const playerPreview = $('.player-preview')
     const playerProgressBar = $('.player-progress__bar')
 
-    playerButton.on('click', function () {
-      // Remove the player preview
-      playerPreview.remove()
+    function setupPlayerButton() {
+      let playerButton = $('.player-preview__button')
 
-      // Create a video element
-      const video = $('<video>', {
-        class: 'team__player-video',
-        controls: true,
-        autoplay: true,
+      playerButton.on('click', function () {
+        // Remove the player preview
+        playerPreview.remove()
+        // Create a video element
+        const video = $('<video>', {
+          class: 'team__player-video',
+          controls: false,
+          autoplay: true,
+        })
+
+        // Add source to the video
+        const source = $('<source>', {
+          src: './videos/team-video.mp4',
+          type: 'video/mp4',
+        })
+
+        video.append(source)
+
+        const player = $('.player.team__player')
+        player.prepend(video)
+
+        // Update the progress bar using GSAP
+        video.on('timeupdate', function () {
+          const progress = (this.currentTime / this.duration) * 100
+          gsap.to(playerProgressBar, { width: `${progress}%`, duration: 0.05 })
+        })
+
+        video.on('ended', function () {
+          video.remove()
+          player.prepend(playerPreview)
+          setupPlayerButton()
+        })
       })
+    }
 
-      // Add source to the video
-      const source = $('<source>', {
-        src: './videos/team-video.mp4',
-        type: 'video/mp4',
-      })
-
-      video.append(source)
-
-      const player = $('.player.team__player')
-      player.prepend(video)
-
-      // Update the progress bar using GSAP
-      video.on('timeupdate', function () {
-        const progress = (this.currentTime / this.duration) * 100
-        gsap.to(playerProgressBar, { width: `${progress}%`, duration: 0.05 })
-      })
-    })
+    setupPlayerButton()
   }
 
   console.log('Document was loaded up')
