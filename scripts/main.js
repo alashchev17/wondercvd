@@ -709,6 +709,49 @@ $(document).ready(function () {
       )
   }
 
+  // History sliders
+
+  function destroyAndReinitializeHistorySliders() {
+    const historySubsections = $('.history__subsection')
+    const historySliders = $('.history__subsection-slider-wrapper')
+    const historySlidersControls = $('.history__subsection-controls')
+
+    historySliders.each(function (index) {
+      const slider = $(this)
+      const slides = slider.find('.history__subsection-slide')
+      const amountOfSlides = slides.length
+
+      // Early return if there is only one slide
+      if (amountOfSlides <= 1) {
+        gsap.set(historySlidersControls.eq(index), { display: 'none' })
+        return
+      }
+
+      const sliderButtons = {
+        prevArrow: historySubsections.eq(index).find('.history__slider-button--prev'),
+        nextArrow: historySubsections.eq(index).find('.history__slider-button--next'),
+      }
+
+      // Reinitialize the slider
+      if (slider.hasClass('slick-initialized')) {
+        slider.slick('destroy')
+      }
+      slider.slick({
+        ...sliderButtons,
+        infinite: true,
+        draggable: false,
+        adaptiveHeight: true,
+        swipe: true,
+        autoplay: true,
+        autoplaySpeed: 3500,
+        swipeToSlide: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        variableWidth: true,
+      })
+    })
+  }
+
   // Solution slider
 
   function destroyAndReinitializeSolutionSlider() {
@@ -796,6 +839,7 @@ $(document).ready(function () {
   animatePromotion()
   animateContact()
   // Sliders
+  destroyAndReinitializeHistorySliders()
   destroyAndReinitializeSolutionSlider()
   destroyAndReinitializeAdvantagesSlider()
 })

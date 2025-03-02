@@ -8837,10 +8837,86 @@ img {
   height: 100%;
   display: flex;
   padding: var(--offset-a2) 0;
-  align-items: stretch;
+  align-items: flex-start;
   justify-content: space-between;
   background-color: var(--black);
-  z-index: -1;
+}
+.history__subsection-slider {
+  position: relative;
+  aspect-ratio: 500/360;
+  max-width: 500px;
+  align-self: flex-start;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.history__subsection-slider-wrapper .slick-list .slick-track {
+  display: flex !important;
+  gap: 15px;
+}
+.history__subsection-controls {
+  position: absolute;
+  right: 0;
+  bottom: -30px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  align-self: flex-end;
+}
+.history__subsection-controls::after {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--primary);
+  width: 3px;
+  height: 3px;
+  border-radius: 100px;
+}
+.history__slider-controls {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  align-self: flex-end;
+}
+.history__slider-controls--mobile {
+  display: none;
+}
+.history__slider-controls::after {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--primary);
+  width: 3px;
+  height: 3px;
+  border-radius: 100px;
+}
+.history__slider-button {
+  padding: unset;
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  transition: filter 0.3s ease-in-out;
+}
+.history__slider-button .history__slider-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s ease-in-out;
+}
+.history__slider-button .history__slider-icon svg {
+  width: 100%;
+  height: 100%;
+  fill: var(--primary);
+  transition: color 0.3s ease-in-out;
+}
+.history__slider-button--prev .history__slider-icon {
+  transform: rotate(-180deg);
 }
 .history__image {
   aspect-ratio: 500/360;
@@ -8870,7 +8946,7 @@ img {
   content: "";
   position: absolute;
   right: 0;
-  bottom: 0;
+  bottom: -80px;
   width: 20px;
   height: 20px;
   background: linear-gradient(to right, var(--primary), var(--primary)) bottom right/50% 2px no-repeat, linear-gradient(to bottom, var(--primary), var(--primary)) bottom right/2px 50% no-repeat;

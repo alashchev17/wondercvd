@@ -1,8 +1,8 @@
-@mixin solid-color-l-shape-tick($size: 20px, $thickness: 2px, $color: var(--primary), $direction: bottom right) {
+@mixin solid-color-l-shape-tick($size: 20px, $thickness: 2px, $color: var(--primary), $direction: bottom right, $bottom: 0) {
   content: '';
   position: absolute;
   right: 0;
-  bottom: 0;
+  bottom: $bottom;
   width: $size;
   height: $size;
 
