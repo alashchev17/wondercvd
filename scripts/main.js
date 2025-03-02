@@ -649,6 +649,14 @@ $(document).ready(function () {
 
   function animatePromotion() {
     const isMobileMode = $(window).width() < 768
+    const contactSection = $('.contact')
+    const promotionHexagons = $('.promotion__hexagons')
+
+    const contactOffset = contactSection.offset().top
+    const promotionHexagonsOffset = promotionHexagons.offset().top
+
+    const distance = Math.abs(contactOffset - promotionHexagonsOffset)
+
     const promotionTl = gsap.timeline({
       defaults: {
         duration: 1.7,
@@ -672,6 +680,13 @@ $(document).ready(function () {
         {
           y: isMobileMode ? -15 : -55,
           opacity: isMobileMode ? 0 : 1,
+        },
+        '<'
+      )
+      .to(
+        $(promotionHexagons),
+        {
+          y: distance + 200,
         },
         '<'
       )
