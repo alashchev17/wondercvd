@@ -690,7 +690,6 @@ $(document).ready(function () {
         trigger: '.contact',
         start: 'top bottom',
         end: '75% bottom',
-        markers: true,
         scrub: isMobileMode ? 0.1 : true,
       },
     })

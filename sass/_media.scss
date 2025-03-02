@@ -324,6 +324,7 @@
       }
       &--mobile {
         display: block;
+        margin-bottom: var(--offset-a6);
       }
     }
     &__slider > #{$self}__slide {

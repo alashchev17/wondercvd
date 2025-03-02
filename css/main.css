@@ -916,6 +916,7 @@ img {
   }
   .advantages__title--mobile {
     display: block;
+    margin-bottom: var(--offset-a6);
   }
   .advantages__slider > .advantages__slide {
     display: none;
@@ -9794,6 +9795,7 @@ img {
   }
   .advantages__title--mobile {
     display: block;
+    margin-bottom: var(--offset-a6);
   }
   .advantages__slider > .advantages__slide {
     display: none;
