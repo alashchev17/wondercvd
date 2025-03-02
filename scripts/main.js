@@ -489,7 +489,7 @@ $(document).ready(function () {
       scrollTrigger: {
         trigger: '.team',
         start: '10% bottom',
-        end: 'bottom 135%',
+        end: 'bottom 155%',
         scrub: isMobileMode ? 0.1 : true,
       },
     })
@@ -497,7 +497,7 @@ $(document).ready(function () {
     teamTl.from(
       '.team__title',
       {
-        y: 50,
+        y: 100,
         opacity: 0,
       },
       '<'
@@ -506,9 +506,9 @@ $(document).ready(function () {
     teamTl.from(
       '.team__info-inner',
       {
-        y: 50,
+        y: 100,
       },
-      '<15%'
+      '<'
     )
   }
 
@@ -529,8 +529,8 @@ $(document).ready(function () {
     const titleTl = gsap.timeline({
       scrollTrigger: {
         trigger: '.solution',
-        start: 'top bottom',
-        end: 'top center',
+        start: 'top 50%',
+        end: 'top top',
         scrub: true,
       },
     })
@@ -574,7 +574,7 @@ $(document).ready(function () {
   /* Details animation */
 
   function animateDetailsAndAdvantages() {
-    const currentWindowHeight = $(window).height() * 1.8
+    const currentWindowHeight = $(window).height() * 1.35
 
     if ($(window).width() > 768) {
       const detailsTl = gsap.timeline({
@@ -675,6 +675,8 @@ $(document).ready(function () {
 
     const distance = Math.abs(contactOffset - promotionHexagonsOffset)
 
+    const mobileAdjuster = isMobileMode ? 150 : -180
+
     const promotionTl = gsap.timeline({
       defaults: {
         duration: 1.7,
@@ -685,6 +687,7 @@ $(document).ready(function () {
         start: 'bottom bottom',
         end: 'bottom top',
         scrub: isMobileMode ? 0.1 : true,
+        pinType: 'transform',
       },
     })
 
@@ -704,7 +707,7 @@ $(document).ready(function () {
       .to(
         $(promotionHexagons),
         {
-          y: distance + 200,
+          y: distance + mobileAdjuster,
         },
         '<'
       )
