@@ -656,7 +656,7 @@ $(document).ready(function () {
       },
       scrollTrigger: {
         trigger: '.promotion',
-        start: 'top bottom',
+        start: 'bottom bottom',
         end: 'bottom top',
         scrub: isMobileMode ? 0.1 : true,
       },
@@ -689,7 +689,8 @@ $(document).ready(function () {
       scrollTrigger: {
         trigger: '.contact',
         start: 'top bottom',
-        end: 'bottom bottom',
+        end: '75% bottom',
+        markers: true,
         scrub: isMobileMode ? 0.1 : true,
       },
     })
