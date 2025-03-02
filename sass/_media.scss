@@ -179,7 +179,7 @@
       gap: var(--offset-a4);
     }
     &__image {
-      max-width: 100%;
+      max-width: calc(100vw - 9.25px * 2);
       @include cut-off-left-top-and-right-bottom-corners(4px, 1, darken($white, 0.5), 'false');
     }
     &__info {
@@ -388,6 +388,7 @@
   }
 
   .location {
+    padding: 0 9.25px;
     &__container {
       padding: 56px 45px;
       flex-direction: column;

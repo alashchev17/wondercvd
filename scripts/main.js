@@ -489,7 +489,7 @@ $(document).ready(function () {
       scrollTrigger: {
         trigger: '.team',
         start: '10% bottom',
-        end: 'bottom bottom',
+        end: 'bottom 135%',
         scrub: isMobileMode ? 0.1 : true,
       },
     })
