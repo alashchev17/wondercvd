@@ -8984,6 +8984,11 @@ img {
   top: 0;
   right: -175px;
 }
+.team__player-video {
+  max-width: 100%;
+  -webkit-clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px);
+          clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px);
+}
 .team__title {
   text-transform: uppercase;
   margin-bottom: var(--offset-a4);

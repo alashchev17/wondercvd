@@ -10,6 +10,12 @@
   }
   &__container {
   }
+  &__player {
+    &-video {
+      max-width: 100%;
+      @include cut-off-left-top-and-right-bottom-corners();
+    }
+  }
   &__title {
     text-transform: uppercase;
     margin-bottom: var(--offset-a4);

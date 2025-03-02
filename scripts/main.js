@@ -333,7 +333,7 @@ $(document).ready(function () {
       scrollTrigger: {
         trigger: '.slogan',
         start: 'top 80%',
-        end: `bottom ${windowHeight / 2 + sloganInfoHeight}px`,
+        end: `bottom ${windowHeight / 2 + sloganInfoHeight * 2}px`,
         scrub: isMobileMode ? 0.1 : true,
       },
     })
@@ -826,6 +826,41 @@ $(document).ready(function () {
     }
   }
 
+  function teamPlayer() {
+    const playerButton = $('.player-preview__button')
+    const playerPreview = $('.player-preview')
+    const playerProgressBar = $('.player-progress__bar')
+
+    playerButton.on('click', function () {
+      // Remove the player preview
+      playerPreview.remove()
+
+      // Create a video element
+      const video = $('<video>', {
+        class: 'team__player-video',
+        controls: true,
+        autoplay: true,
+      })
+
+      // Add source to the video
+      const source = $('<source>', {
+        src: './videos/team-video.mp4',
+        type: 'video/mp4',
+      })
+
+      video.append(source)
+
+      const player = $('.player.team__player')
+      player.prepend(video)
+
+      // Update the progress bar using GSAP
+      video.on('timeupdate', function () {
+        const progress = (this.currentTime / this.duration) * 100
+        gsap.to(playerProgressBar, { width: `${progress}%`, duration: 0.05 })
+      })
+    })
+  }
+
   console.log('Document was loaded up')
   ScrollTrigger.refresh()
   // Animations
@@ -842,6 +877,8 @@ $(document).ready(function () {
   destroyAndReinitializeHistorySliders()
   destroyAndReinitializeSolutionSlider()
   destroyAndReinitializeAdvantagesSlider()
+  // Player
+  teamPlayer()
 })
 
 jQuery.event.special.touchstart = {
