@@ -795,6 +795,9 @@ img {
     justify-content: unset;
     gap: var(--offset-a4);
   }
+  .history__subsection-slider {
+    max-width: 100%;
+  }
   .history__image {
     max-width: calc(100vw - 18.5px);
     -webkit-clip-path: polygon(4px 0, 100% 0, 100% calc(100% - 4px), calc(100% - 4px) 100%, 0 100%, 0 4px);
@@ -9669,6 +9672,9 @@ img {
     flex-direction: column;
     justify-content: unset;
     gap: var(--offset-a4);
+  }
+  .history__subsection-slider {
+    max-width: 100%;
   }
   .history__image {
     max-width: calc(100vw - 18.5px);
