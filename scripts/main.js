@@ -555,7 +555,6 @@ $(document).ready(function () {
         end: '+=750',
         pin: true,
         pinSpacing: true,
-        markers: true,
         scrub: true,
       },
     })
