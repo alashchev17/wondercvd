@@ -9029,7 +9029,6 @@ img {
 
 .solution {
   margin-bottom: var(--offset-a2);
-  padding: var(--offset-a2) 0;
 }
 .solution__container {
   position: relative;
@@ -9417,6 +9416,7 @@ img {
           clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px);
   position: relative;
   border: 2px solid gray;
+  background-color: var(--black);
 }
 .location__container::before {
   content: "";

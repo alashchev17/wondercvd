@@ -136,6 +136,9 @@ $(document).ready(function () {
   const menu = $('.header__menu')
   const burgerButton = $('.header__burger')
 
+  // pinning offset from header.height() + headerBottomOffset
+  const headerBottomOffset = $(window).width() < 768 ? 100 : 40
+
   let isMenuOpened = false
 
   burgerButton.on('click', (event) => {
@@ -548,10 +551,11 @@ $(document).ready(function () {
       },
       scrollTrigger: {
         trigger: '.solution',
-        start: 'top top',
+        start: `top ${header.height() + headerBottomOffset}`,
         end: '+=750',
         pin: true,
         pinSpacing: true,
+        markers: true,
         scrub: true,
       },
     })
@@ -574,9 +578,12 @@ $(document).ready(function () {
   /* Details animation */
 
   function animateDetailsAndAdvantages() {
-    const currentWindowHeight = $(window).height() * 1.35
+    const isMobileMode = $(window).width() < 768
+    const detailsSection = $('.details')
+    const detailsSectionHeight = detailsSection.height()
 
-    if ($(window).width() > 768) {
+    // Desktop animation
+    if (!isMobileMode) {
       const detailsTl = gsap.timeline({
         defaults: {
           duration: 1.7,
@@ -584,12 +591,9 @@ $(document).ready(function () {
         },
         scrollTrigger: {
           trigger: '.details',
-          start: 'top 25%',
-          end: `+=${currentWindowHeight + 200}`, // Increased scroll distance
-          // end: `max`, // Increased scroll distance
-          pin: true,
-          pinSpacing: false,
-          anticipatePin: 1,
+          start: 'top 80%',
+          end: 'bottom 70%',
+          // markers: true,
           scrub: true,
         },
       })
@@ -619,6 +623,7 @@ $(document).ready(function () {
           '.details__info-image',
           {
             y: 90,
+            opacity: 0,
           },
           '<'
         )
@@ -626,9 +631,10 @@ $(document).ready(function () {
           solutionEllipseContainer,
           {
             x: 0,
+            y: detailsSectionHeight * 1.2,
             ease: 'none',
           },
-          '<50%'
+          '<0'
         )
 
       // Advantages overlay
@@ -637,28 +643,48 @@ $(document).ready(function () {
         start: 'top bottom',
         endTrigger: '.advantages',
         end: 'bottom top',
-        anticipatePin: 1,
         scrub: true,
       })
 
       return detailsTl
-    } else {
-      const detailsSectionHeight = $('.details').height()
-
+    }
+    // Mobile animation
+    else {
       const detailsTl = gsap.timeline({
         defaults: {
           duration: 1.7,
           ease: 'power3.inOut',
         },
         scrollTrigger: {
-          trigger: '.details__info-image',
-          start: 'top 25%',
-          end: `${detailsSectionHeight / 1.8} 23%`,
-          pin: true,
-          pinSpacing: false,
-          scrub: true,
+          trigger: '.details',
+          start: 'top 60%',
+          end: 'bottom 20%',
+          scrub: 0.1,
         },
       })
+
+      detailsTl
+        .from('.details__title', {
+          y: 20,
+          opacity: 0,
+        })
+        .from(
+          '.details__info',
+          {
+            y: 30,
+            opacity: 0,
+          },
+          '<15%'
+        )
+        .from(
+          '.details__info-image',
+          {
+            y: 40,
+            opacity: 0,
+          },
+          '<'
+        )
+
       return detailsTl
     }
   }

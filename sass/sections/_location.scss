@@ -7,6 +7,7 @@
     padding: 75px 55px;
     @include cut-off-left-top-and-right-bottom-corners(15px, 2, darken($white, 50%), 'true');
     border: 2px solid darken($white, 50%);
+    background-color: var(--black);
   }
   &__title {
     font-size: 32px;
