@@ -592,7 +592,6 @@ $(document).ready(function () {
           trigger: '.details',
           start: 'top 80%',
           end: 'bottom 70%',
-          // markers: true,
           scrub: true,
         },
       })
@@ -635,55 +634,26 @@ $(document).ready(function () {
           },
           '<0'
         )
-
-      // Advantages overlay
-      ScrollTrigger.create({
-        trigger: '.advantages',
-        start: 'top bottom',
-        endTrigger: '.advantages',
-        end: 'bottom top',
-        scrub: true,
-      })
-
       return detailsTl
     }
     // Mobile animation
     else {
+      const detailsSectionHeight = $('.details').height()
+
       const detailsTl = gsap.timeline({
         defaults: {
           duration: 1.7,
           ease: 'power3.inOut',
         },
         scrollTrigger: {
-          trigger: '.details',
-          start: 'top 60%',
-          end: 'bottom 20%',
-          scrub: 0.1,
+          trigger: '.details__info-image',
+          start: 'top 25%',
+          end: `${detailsSectionHeight / 1.8} 23%`,
+          pin: true,
+          pinSpacing: false,
+          scrub: true,
         },
       })
-
-      detailsTl
-        .from('.details__title', {
-          y: 20,
-          opacity: 0,
-        })
-        .from(
-          '.details__info',
-          {
-            y: 30,
-            opacity: 0,
-          },
-          '<15%'
-        )
-        .from(
-          '.details__info-image',
-          {
-            y: 40,
-            opacity: 0,
-          },
-          '<'
-        )
-
       return detailsTl
     }
   }
@@ -934,22 +904,26 @@ $(document).ready(function () {
 
   console.log('Document was loaded up')
   ScrollTrigger.refresh()
-  // Animations
-  hidePreloader()
-  animateHero()
-  animateSlogan()
-  animateHistory()
-  animateTeam()
-  animateSolution()
-  animateDetailsAndAdvantages()
-  animatePromotion()
-  animateContact()
   // Sliders
   destroyAndReinitializeHistorySliders()
   destroyAndReinitializeSolutionSlider()
   destroyAndReinitializeAdvantagesSlider()
   // Player
   teamPlayer()
+  setTimeout(() => {
+    // Animations
+    setTimeout(() => {
+      hidePreloader()
+    }, 100)
+    animateHero()
+    animateSlogan()
+    animateHistory()
+    animateTeam()
+    animateSolution()
+    animateDetailsAndAdvantages()
+    animatePromotion()
+    animateContact()
+  }, 1000)
 })
 
 jQuery.event.special.touchstart = {
