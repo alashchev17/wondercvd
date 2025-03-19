@@ -917,7 +917,7 @@ $(document).ready(function () {
     }, 100)
     animateHero()
     animateSlogan()
-    animateHistory()
+    // animateHistory()
     animateTeam()
     animateSolution()
     animateDetailsAndAdvantages()

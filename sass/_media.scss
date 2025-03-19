@@ -97,7 +97,7 @@
       &.active {
         .nav {
           &__list {
-            height: calc(100dvh - $header-height);
+            height: calc(100vh - $header-height);
           }
         }
       }
@@ -173,10 +173,29 @@
     }
   }
   .history {
+    &__hexagons {
+      &--first {
+        position: absolute;
+        right: 0;
+        bottom: -60px;
+        max-width: 300px;
+      }
+    }
+    &__ellipse {
+      &--first {
+        position: absolute;
+        bottom: -45px;
+        left: -40%;
+        transform: translateX(40%);
+      }
+    }
     &__subsection {
       flex-direction: column;
       justify-content: unset;
       gap: var(--offset-a4);
+      &:nth-child(2n) {
+        flex-direction: column;
+      }
       &-slider {
         max-width: 100%;
       }
@@ -190,6 +209,9 @@
       &-inner {
         padding-bottom: 30px;
         margin-left: 18px;
+      }
+      &::after {
+        bottom: -20px;
       }
     }
   }

@@ -1,21 +1,35 @@
 .history {
-  // padding: var(--offset-a2) 0;
   &__container {
     position: relative;
-    height: 100dvh;
-    overflow: hidden;
+  }
+  &__hexagons {
+    &--first {
+      position: absolute;
+      right: 0;
+      bottom: -60px;
+    }
+  }
+  &__ellipse {
+    &--first {
+      position: absolute;
+      bottom: -45px;
+      left: -40%;
+      transform: translateX(40%);
+    }
   }
   &__subsection {
-    position: absolute;
-    top: 0;
-    left: 0;
+    position: relative;
     width: 100%;
     height: 100%;
     display: flex;
-    padding: var(--offset-a2) 0;
     align-items: flex-start;
     justify-content: space-between;
-    background-color: var(--black);
+    &:nth-child(2n) {
+      flex-direction: row-reverse;
+    }
+    &:not(:last-child) {
+      padding-bottom: var(--offset-a2);
+    }
     // z-index: -1;
     &-slider {
       position: relative;
