@@ -8915,6 +8915,9 @@ img {
   gap: 8px;
   align-self: flex-end;
 }
+.history__subsection-controls.slick-hidden::after {
+  display: none;
+}
 .history__subsection-controls::after {
   position: absolute;
   content: "";
@@ -9157,6 +9160,7 @@ img {
 }
 .details__info {
   position: relative;
+  margin: 0 auto;
 }
 .details__info::before, .details__info::after {
   content: "";
